@@ -5,12 +5,13 @@
   "scripts": {
     "test": "playwright test",
     "coverage": "tsx coverage/cli.ts",
-    "test:coverage-tool": "tsx --test coverage/core.test.ts coverage/delta.test.ts coverage/history.test.ts",
+    "test:coverage-tool": "tsx --test coverage/core.test.ts coverage/delta.test.ts coverage/history.test.ts coverage/tokens.test.ts",
     "typecheck": "tsc --noEmit",
     "ci": "npm run test:coverage-tool && playwright test && tsx coverage/cli.ts --fail-on-unmatched",
     "coverage:report": "tsx coverage/pr-report.ts",
     "pr:gaps": "tsx agents/fetch-pr-gaps.ts",
-    "coverage:history": "tsx coverage/history.ts"
+    "coverage:history": "tsx coverage/history.ts",
+    "coverage:tokens": "tsx coverage/tokens.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",

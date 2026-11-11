@@ -1,12 +1,13 @@
 // Coverage history: one JSON line per measured commit, and a single HTML page drawn from them.
 //   tsx coverage/history.ts append --history <file.jsonl> --coverage coverage-report/coverage.json --sha <sha> ...
-//   tsx coverage/history.ts render --history <file.jsonl> --out <file.html>
+//   tsx coverage/history.ts render --history <file.jsonl> --out <file.html> [--tokens coverage/tokens.json]
 // CI runs both on every push to main (.github/workflows/qa-coverage-history.yml).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import type { CoverageReport, Ratio } from './core';
+import { readTokens, type PrTokens, type TokenFile } from './tokens';
 
 export interface HistoryRow {
   date: string;
@@ -38,6 +39,22 @@ export function upsert(rows: HistoryRow[], row: HistoryRow): HistoryRow[] {
   return [...rows.filter((r) => r.sha !== row.sha), row].sort((a, b) => a.date.localeCompare(b.date));
 }
 
+export type PlottedTokens = PrTokens & { pr: number; /** 1-based measurement it is drawn on, or null. */ row: number | null };
+
+/**
+ * Places each PR's token usage on one measurement: the commit named by its `sha`, else the PR's merge commit
+ * ("#N title"). A PR with neither among the measurements is still listed, with `row: null`.
+ */
+export function placeTokens(rows: HistoryRow[], tokens: TokenFile | undefined): PlottedTokens[] {
+  return Object.entries(tokens?.prs ?? {})
+    .map(([key, t]) => {
+      const pr = Number(key);
+      const i = t.sha ? rows.findIndex((r) => r.sha.startsWith(t.sha!)) : rows.findIndex((r) => r.label.startsWith(`#${pr} `));
+      return { ...t, pr, row: i < 0 ? null : i + 1 };
+    })
+    .sort((a, b) => a.pr - b.pr);
+}
+
 const esc = (s: unknown) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
@@ -45,7 +62,13 @@ const esc = (s: unknown) =>
  * The page. `fragment` leaves out the document wrapper, for hosts that add their own.
  * Colors are the validated categorical palette also used by the PR report's sibling page.
  */
-export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?: boolean; generatedAt: string }): string {
+export function renderPage(
+  rows: HistoryRow[],
+  opts: { repo?: string; fragment?: boolean; generatedAt: string; tokens?: TokenFile },
+): string {
+  const prs = placeTokens(rows, opts.tokens);
+  const tokenTotal = prs.reduce((sum, p) => sum + p.total, 0);
+  const millions = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}k` : String(n));
   const first = rows[0];
   const last = rows[rows.length - 1];
   const span = (pick: (r: HistoryRow) => string) => (first && last ? `${pick(first)} → ${pick(last)}` : 'n/a');
@@ -111,6 +134,10 @@ export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?:
   table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
   th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; white-space: nowrap; }
   td.what { white-space: normal; min-width: 220px; }
+  td.num, th.num { text-align: right; }
+  .note { color: var(--ink-2); font-size: 13.5px; margin-bottom: 12px; }
+  #tokchartwrap { min-width: 620px; }
+  svg text.barlabel { fill: var(--ink); font-weight: 500; }
   thead th { color: var(--ink-2); font-weight: 600; font-size: 12.5px; }
   td small, .muted { color: var(--muted); }
   .up { color: var(--up); } .down { color: var(--down); }
@@ -128,7 +155,9 @@ export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?:
     <div><b>${esc(ofTotal('operations'))}</b><span>operations</span></div>
     <div><b>${esc(ofTotal('statuses'))}</b><span>status codes</span></div>
     <div><b>${esc(ofTotal('parameters'))}</b><span>parameters</span></div>
-    <div><b>${esc(ofTotal('requestBodies'))}</b><span>request bodies</span></div>
+    <div><b>${esc(ofTotal('requestBodies'))}</b><span>request bodies</span></div>${
+      prs.length ? `\n    <div><b>${esc(millions(tokenTotal))}</b><span>AI tokens across ${prs.length} pull request${prs.length === 1 ? '' : 's'}</span></div>` : ''
+    }
   </section>
 
   <section class="panel">
@@ -137,18 +166,45 @@ export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?:
     <div class="scroll"><div id="chartwrap"><svg id="chart" viewBox="0 0 800 360" role="img" aria-label="Line chart of coverage percentage per measured commit for operations, status codes, parameters and request bodies. The same numbers are in the table below."></svg><div id="tip" hidden></div></div></div>
   </section>
 
-  <section class="panel">
+${
+    prs.length
+      ? `  <section class="panel">
+    <h2>AI tokens spent per pull request</h2>
+    <p class="note">Each bar sits on the measurement its pull request produced, in the same position as in the chart above. Pull requests without a measurement are only in the table at the bottom.</p>
+    <div class="scroll"><div id="tokchartwrap"><svg id="tokchart" viewBox="0 0 800 220" role="img" aria-label="Bar chart of AI tokens spent per pull request, placed on the measurement each pull request produced. The same numbers are in the tables below."></svg></div></div>
+  </section>
+
+`
+      : ''
+  }  <section class="panel">
     <h2>Every measurement, newest first</h2>
     <div class="scroll"><table>
-      <thead><tr><th>Date</th><th>Commit</th><th>Tests</th><th>Operations</th><th>Status codes</th><th>Parameters</th><th>Request bodies</th><th>Change</th></tr></thead>
+      <thead><tr><th>Date</th><th>Commit</th><th>Tests</th>${prs.length ? '<th class="num">AI tokens</th>' : ''}<th>Operations</th><th>Status codes</th><th>Parameters</th><th>Request bodies</th><th>Change</th></tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
   </section>
+${
+    prs.length
+      ? `
+  <section class="panel">
+    <h2>AI tokens per pull request</h2>
+    <p class="note">Estimated from the Claude Code transcripts of the machine that did the work: every model call made while the pull request's branch was checked out, subagents included, up to the merge. Work done on <code>main</code> before the branch existed is not counted. Cache reads are context re-read from the cache on each call, which is why they dominate.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Pull request</th><th>Branch</th><th class="num">Calls</th><th class="num">Input</th><th class="num">Output</th><th class="num">Cache write</th><th class="num">Cache read</th><th class="num">Total</th><th>Drawn on</th></tr></thead>
+      <tbody id="prrows"></tbody>
+    </table></div>
+  </section>`
+      : ''
+  }
 </main>
 
 <script>
   const rows = ${JSON.stringify(rows).replace(/</g, '\\u003c')};
   const repo = ${JSON.stringify(opts.repo ?? '')};
+  const prs = ${JSON.stringify(prs).replace(/</g, '\\u003c')};
+  const tokensAt = (i) => prs.find((p) => p.row === i + 1);
+  const num = (v) => v.toLocaleString('en-US');
+  const millions = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? Math.round(v / 1e3) + 'k' : String(v));
   const series = [
     { key: 'operations',    name: 'Operations',     color: 'var(--s1)' },
     { key: 'statuses',      name: 'Status codes',   color: 'var(--s2)' },
@@ -172,8 +228,10 @@ export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?:
       return '<td>' + cellText(r[k]) + d + '</td>';
     };
     const sha = repo ? '<a href="https://github.com/' + repo + '/commit/' + r.sha + '"><code>' + r.sha.slice(0, 7) + '</code></a>' : '<code>' + r.sha.slice(0, 7) + '</code>';
+    const t = tokensAt(i);
+    const tokenCell = prs.length ? '<td class="num">' + (t ? num(t.total) + ' <small>#' + t.pr + '</small>' : '<span class="muted">n/a</span>') + '</td>' : '';
     const tests = (r.tests === null ? '<span class="muted">n/a</span>' : r.tests) + (r.testsFailed ? ' <span class="failed">failed</span>' : '');
-    return '<tr><th scope="row">' + day(r.date) + '</th><td>' + sha + '</td><td>' + tests + '</td>' + series.map((s) => cell(s.key)).join('') + '<td class="what">' + esc(r.label) + '</td></tr>';
+    return '<tr><th scope="row">' + day(r.date) + '</th><td>' + sha + '</td><td>' + tests + '</td>' + tokenCell + series.map((s) => cell(s.key)).join('') + '<td class="what">' + esc(r.label) + '</td></tr>';
   }).reverse().join('');
 
   // ---- legend ----
@@ -230,6 +288,7 @@ export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?:
     const r = rows[i];
     cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('visibility', 'visible');
     tip.innerHTML = '<strong>' + (i + 1) + ' · ' + day(r.date) + ' · ' + esc(r.label) + '</strong><div class="row"><span>Tests</span><span>' + (r.tests === null ? 'n/a' : r.tests) + '</span></div>' +
+      (tokensAt(i) ? '<div class="row"><span>AI tokens (#' + tokensAt(i).pr + ')</span><span>' + num(tokensAt(i).total) + '</span></div>' : '') +
       series.map((s) => '<div class="row"><span><i style="background:' + s.color + '"></i>' + s.name + '</span><span>' + r[s.key].covered + ' / ' + r[s.key].total + ' · ' + r[s.key].percent.toFixed(1) + '%</span></div>').join('');
     tip.hidden = false;
     const left = (x(i) / W) * box.width;
@@ -242,6 +301,36 @@ export function renderPage(rows: HistoryRow[], opts: { repo?: string; fragment?:
   hit.addEventListener('pointermove', show);
   hit.addEventListener('pointerdown', show);
   hit.addEventListener('pointerleave', hide);
+
+  // ---- tokens: bars on the same x positions as the chart above, and one table row per pull request ----
+  if (prs.length) {
+    const TH = 220, TM = { t: 24, b: 30 };
+    const top = Math.max(...prs.map((p) => p.total));
+    const step = Math.pow(10, Math.floor(Math.log10(top)));
+    const tick = top / step >= 5 ? step : top / step >= 2 ? step / 2 : step / 5;
+    const TMAX = Math.ceil(top / tick) * tick;
+    const ty = (v) => TM.t + (1 - v / TMAX) * (TH - TM.t - TM.b);
+    const bw = Math.min(40, n > 1 ? ((W - M.l - M.r) / (n - 1)) * 0.6 : 40);
+    let bars = '';
+    for (let v = 0; v <= TMAX + tick / 2; v += tick) {
+      bars += '<line x1="' + M.l + '" x2="' + (W - M.r) + '" y1="' + ty(v) + '" y2="' + ty(v) + '" stroke="' + (v === 0 ? 'var(--axis)' : 'var(--grid)') + '" stroke-width="1"/>';
+      bars += '<text x="' + (M.l - 8) + '" y="' + (ty(v) + 4) + '" text-anchor="end">' + millions(v) + '</text>';
+    }
+    prs.filter((p) => p.row !== null).forEach((p) => {
+      const cx = x(p.row - 1);
+      bars += '<rect x="' + (cx - bw / 2) + '" y="' + ty(p.total) + '" width="' + bw + '" height="' + (ty(0) - ty(p.total)) + '" rx="2" fill="var(--ink-2)"><title>#' + p.pr + ' ' + esc(p.branch) + ': ' + num(p.total) + ' tokens</title></rect>';
+      bars += '<text class="barlabel" x="' + cx + '" y="' + (ty(p.total) - 6) + '" text-anchor="middle">' + millions(p.total) + '</text>';
+      bars += '<text x="' + cx + '" y="' + (TH - TM.b + 18) + '" text-anchor="middle">' + p.row + ' · #' + p.pr + '</text>';
+    });
+    document.getElementById('tokchart').innerHTML = bars;
+
+    document.getElementById('prrows').innerHTML = prs.map((p) => {
+      const link = repo ? '<a href="https://github.com/' + repo + '/pull/' + p.pr + '">#' + p.pr + '</a>' : '#' + p.pr;
+      const cells = [p.messages, p.input, p.output, p.cacheWrite, p.cacheRead, p.total].map((v) => '<td class="num">' + num(v) + '</td>').join('');
+      const where = p.row === null ? '<span class="muted">no measurement</span>' : 'measurement ' + p.row;
+      return '<tr><th scope="row">' + link + '</th><td><code>' + esc(p.branch) + '</code></td>' + cells + '<td>' + where + '</td></tr>';
+    }).join('');
+  }
 </script>`;
 
   if (opts.fragment) return `${head}\n\n${body}\n`;
@@ -256,7 +345,9 @@ const HELP = `Usage:
                                  [--date <ISO date>] [--tests-failed]
       The commit message and date can also come from the COMMIT_MESSAGE and COMMIT_DATE environment
       variables, which is safer for multi-line messages than a command-line argument.
-  tsx coverage/history.ts render --history <file.jsonl> --out <file.html> [--repo owner/name] [--fragment]`;
+  tsx coverage/history.ts render --history <file.jsonl> --out <file.html> [--repo owner/name] [--fragment]
+                                 [--tokens <tokens.json>]
+      --tokens adds the AI token usage per pull request recorded by coverage/tokens.ts.`;
 
 function main(): number {
   const { values, positionals } = parseArgs({
@@ -273,6 +364,7 @@ function main(): number {
       out: { type: 'string' },
       repo: { type: 'string' },
       fragment: { type: 'boolean' },
+      tokens: { type: 'string' },
       help: { type: 'boolean' },
     },
   });
@@ -329,7 +421,8 @@ function main(): number {
     const rows = readHistory(historyFile);
     const out = path.resolve(values.out);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, renderPage(rows, { repo: values.repo, fragment: values.fragment, generatedAt: new Date().toISOString() }));
+    const tokens = values.tokens ? readTokens(path.resolve(values.tokens)) : undefined;
+    fs.writeFileSync(out, renderPage(rows, { repo: values.repo, fragment: values.fragment, generatedAt: new Date().toISOString(), tokens }));
     console.log(`Rendered ${rows.length} measurement(s) to ${out}`);
     return 0;
   }

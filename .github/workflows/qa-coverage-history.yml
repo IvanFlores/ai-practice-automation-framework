@@ -84,6 +84,7 @@ jobs:
           npm run -s coverage:history -- render \
             --history ../.history/history.jsonl \
             --out ../.history/index.html \
+            --tokens coverage/tokens.json \
             --repo "$GITHUB_REPOSITORY"
 
       - name: Push the history branch
