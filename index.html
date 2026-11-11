@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAD Coverage Evolution</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+  /* Layout: one column, start-to-end figures, then the chart, then the same data as a table. */
+  :root {
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --up: #006300; --down: #d03b3b;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+    --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --body: Inter, "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --axis: #383835; --up: #0ca30c; --down: #e66767;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --up: #0ca30c; --down: #e66767;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; color-scheme: dark;
+  }
+  body {
+    margin: 0; background: var(--page); color: var(--ink); font: 15px/1.55 var(--body);
+    padding-block: 32px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  main { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  h1 { font: 600 28px/1.2 var(--display); margin: 0; text-wrap: balance; }
+  h2 { font: 600 17px/1.3 var(--display); margin: 0 0 10px; }
+  p { margin: 0; max-width: 68ch; }
+  a { color: inherit; }
+  .lede { color: var(--ink-2); margin-top: 8px; }
+  .headline { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+  .headline div { min-width: 0; }
+  .headline b { font: 600 22px/1.2 var(--display); font-variant-numeric: tabular-nums; display: block; }
+  .headline span { color: var(--ink-2); font-size: 13px; }
+  .panel { background: var(--surface); border: 1px solid var(--grid); border-radius: 8px; padding: 16px; min-width: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+  .legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+  .scroll { overflow-x: auto; }
+  #chartwrap { position: relative; min-width: 620px; }
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font: 12px var(--body); fill: var(--muted); font-variant-numeric: tabular-nums; }
+  svg text.endlabel { fill: var(--ink); font-weight: 500; }
+  #tip {
+    position: absolute; pointer-events: none; background: var(--surface); color: var(--ink);
+    border: 1px solid var(--axis); border-radius: 6px; padding: 8px 10px; font-size: 12.5px; line-height: 1.5;
+    box-shadow: 0 4px 14px rgba(0,0,0,.18); min-width: 200px; max-width: 320px; font-variant-numeric: tabular-nums;
+  }
+  #tip strong { display: block; margin-bottom: 2px; }
+  #tip .row { display: flex; justify-content: space-between; gap: 16px; }
+  #tip .row i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; white-space: nowrap; }
+  td.what { white-space: normal; min-width: 220px; }
+  thead th { color: var(--ink-2); font-weight: 600; font-size: 12.5px; }
+  td small, .muted { color: var(--muted); }
+  .up { color: var(--up); } .down { color: var(--down); }
+  .failed { color: var(--down); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>GAD API spec coverage over time</h1>
+    <p class="lede">Share of the OpenAPI spec exercised by the <code>qa/</code> Playwright suite, measured on each commit to <code>main</code>. 8 measurements; page generated 2026-11-11T03:59:41.974Z.</p>
+  </header>
+
+  <section class="headline" aria-label="First and latest measurement">
+    <div><b>6 → 76</b><span>tests</span></div>
+    <div><b>4 → 24 of 171</b><span>operations</span></div>
+    <div><b>7 → 69 of 389</b><span>status codes</span></div>
+    <div><b>1 → 16 of 97</b><span>parameters</span></div>
+    <div><b>3 → 10 of 41</b><span>request bodies</span></div>
+  </section>
+
+  <section class="panel">
+    <h2>Percent of the spec covered</h2>
+    <div class="legend" id="legend"></div>
+    <div class="scroll"><div id="chartwrap"><svg id="chart" viewBox="0 0 800 360" role="img" aria-label="Line chart of coverage percentage per measured commit for operations, status codes, parameters and request bodies. The same numbers are in the table below."></svg><div id="tip" hidden></div></div></div>
+  </section>
+
+  <section class="panel">
+    <h2>Every measurement, newest first</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>Date</th><th>Commit</th><th>Tests</th><th>Operations</th><th>Status codes</th><th>Parameters</th><th>Request bodies</th><th>Change</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+  </section>
+</main>
+
+<script>
+  const rows = [{"date":"2026-11-11T00:20:36.000Z","sha":"b198c8b13671380362b2e80c574c2b8278397f02","label":"Day 1 baseline: hand-written tests","tests":6,"testsFailed":false,"operations":{"covered":4,"total":170,"percent":2.4},"statuses":{"covered":7,"total":387,"percent":1.8},"parameters":{"covered":1,"total":96,"percent":1},"requestBodies":{"covered":3,"total":41,"percent":7.3}},{"date":"2026-11-11T00:21:33.000Z","sha":"53aeb9636cf66e04317c5ab02b74054c4d60a07f","label":"AI tests batch 1: articles and authentication gaps","tests":26,"testsFailed":false,"operations":{"covered":10,"total":170,"percent":5.9},"statuses":{"covered":26,"total":387,"percent":6.7},"parameters":{"covered":5,"total":96,"percent":5.2},"requestBodies":{"covered":5,"total":41,"percent":12.2}},{"date":"2026-11-11T00:22:16.000Z","sha":"1117ff538b215b0a007717dd0caeec06df1a32c9","label":"AI tests batch 2: comments gaps","tests":50,"testsFailed":false,"operations":{"covered":17,"total":170,"percent":10},"statuses":{"covered":48,"total":387,"percent":12.4},"parameters":{"covered":10,"total":96,"percent":10.4},"requestBodies":{"covered":8,"total":41,"percent":19.5}},{"date":"2026-11-11T00:25:05.000Z","sha":"2fa33d09bb7ead878027b06cba756ed3ec5dc580","label":"AI tests batch 3: likes held back, module disabled by feature flag","tests":50,"testsFailed":false,"operations":{"covered":17,"total":170,"percent":10},"statuses":{"covered":48,"total":387,"percent":12.4},"parameters":{"covered":10,"total":96,"percent":10.4},"requestBodies":{"covered":8,"total":41,"percent":19.5}},{"date":"2026-11-11T00:28:04.000Z","sha":"2b2c065bf169e8eb585505c7552f1c7fa2bad054","label":"AI tests batch 4: users gaps","tests":74,"testsFailed":false,"operations":{"covered":23,"total":170,"percent":13.5},"statuses":{"covered":67,"total":387,"percent":17.3},"parameters":{"covered":15,"total":96,"percent":15.6},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T01:48:49.000Z","sha":"496b52f3828ee87b6008826397e1403146c0b5cb","label":"Add article stats endpoint: GET /api/articles/{id}/stats (no tests yet)","tests":74,"testsFailed":false,"operations":{"covered":23,"total":171,"percent":13.5},"statuses":{"covered":67,"total":389,"percent":17.2},"parameters":{"covered":15,"total":97,"percent":15.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T01:51:30.000Z","sha":"f91489bde4f66a472745475b6055cc694fb9e020","label":"AI tests: cover GET /api/articles/{id}/stats (200, 404)","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T03:01:10.000Z","sha":"f2b9e68f22856eb8a3ca47ddb7c8efb9b53edca0","label":"#3 Add article stats endpoint: GET /api/articles/{id}/stats","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}}];
+  const repo = "IvanFlores/ai-practice-automation-framework";
+  const series = [
+    { key: 'operations',    name: 'Operations',     color: 'var(--s1)' },
+    { key: 'statuses',      name: 'Status codes',   color: 'var(--s2)' },
+    { key: 'parameters',    name: 'Parameters',     color: 'var(--s3)' },
+    { key: 'requestBodies', name: 'Request bodies', color: 'var(--s4)' },
+  ];
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const day = (iso) => iso.slice(0, 10);
+  const cellText = (r) => r.covered + ' / ' + r.total + ' <small>(' + r.percent.toFixed(1) + '%)</small>';
+
+  // ---- table, newest first; deltas compare covered/total with the previous measurement ----
+  document.getElementById('rows').innerHTML = rows.map((r, i) => {
+    const prev = rows[i - 1];
+    const cell = (k) => {
+      let d = '';
+      if (prev) {
+        const diff = r[k].covered / r[k].total - prev[k].covered / prev[k].total;
+        const pp = Math.abs(diff * 100);
+        if (diff !== 0) d = ' <span class="' + (diff > 0 ? 'up' : 'down') + '">' + (diff > 0 ? '+' : '−') + (pp < 0.05 ? '<0.1' : pp.toFixed(1)) + '</span>';
+      }
+      return '<td>' + cellText(r[k]) + d + '</td>';
+    };
+    const sha = repo ? '<a href="https://github.com/' + repo + '/commit/' + r.sha + '"><code>' + r.sha.slice(0, 7) + '</code></a>' : '<code>' + r.sha.slice(0, 7) + '</code>';
+    const tests = (r.tests === null ? '<span class="muted">n/a</span>' : r.tests) + (r.testsFailed ? ' <span class="failed">failed</span>' : '');
+    return '<tr><th scope="row">' + day(r.date) + '</th><td>' + sha + '</td><td>' + tests + '</td>' + series.map((s) => cell(s.key)).join('') + '<td class="what">' + esc(r.label) + '</td></tr>';
+  }).reverse().join('');
+
+  // ---- legend ----
+  document.getElementById('legend').innerHTML = series.map((s) => '<span><i style="background:' + s.color + '"></i>' + s.name + '</span>').join('');
+
+  // ---- chart: one y axis (percent), measurements evenly spaced in order ----
+  const W = 800, H = 360, M = { l: 44, r: 150, t: 16, b: 34 };
+  const peak = Math.max(0, ...rows.flatMap((r) => series.map((s) => r[s.key].percent)));
+  const YMAX = Math.min(100, Math.max(30, Math.ceil((peak + 3) / 10) * 10));
+  const n = rows.length;
+  const x = (i) => (n === 1 ? (M.l + W - M.r) / 2 : M.l + (i * (W - M.l - M.r)) / (n - 1));
+  const y = (v) => M.t + (1 - v / YMAX) * (H - M.t - M.b);
+  let svg = '';
+  for (let v = 0; v <= YMAX; v += YMAX > 50 ? 20 : 10) {
+    svg += '<line x1="' + M.l + '" x2="' + (W - M.r) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="' + (v === 0 ? 'var(--axis)' : 'var(--grid)') + '" stroke-width="1"/>';
+    svg += '<text x="' + (M.l - 8) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + v + '%</text>';
+  }
+  // at most ~7 x labels, always including the first and the last measurement
+  const every = Math.max(1, Math.ceil(n / 7));
+  rows.forEach((r, i) => {
+    if (i % every === 0 || i === n - 1) {
+      if (i !== n - 1 && n - 1 - i < every / 2) return;
+      svg += '<text x="' + x(i) + '" y="' + (H - M.b + 20) + '" text-anchor="' + (i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle') + '">' + (i + 1) + ' · ' + day(r.date).slice(5) + '</text>';
+    }
+  });
+  svg += '<line id="cross" x1="0" x2="0" y1="' + M.t + '" y2="' + (H - M.b) + '" stroke="var(--axis)" stroke-width="1" visibility="hidden"/>';
+  const dots = n <= 40;
+  series.forEach((s) => {
+    const pts = rows.map((r, i) => x(i).toFixed(1) + ',' + y(r[s.key].percent).toFixed(1));
+    svg += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + s.color + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    rows.forEach((r, i) => {
+      if (dots || i === n - 1) svg += '<circle cx="' + x(i) + '" cy="' + y(r[s.key].percent) + '" r="' + (i === n - 1 ? 4.5 : 3) + '" fill="' + s.color + '" stroke="var(--surface)" stroke-width="2"/>';
+    });
+  });
+  if (n > 0) {
+    // direct end labels, pushed apart so they never overlap
+    const last = rows[n - 1];
+    const labels = series.map((s) => ({ s, v: last[s.key].percent, yy: y(last[s.key].percent) })).sort((a, b) => a.yy - b.yy);
+    for (let i = 1; i < labels.length; i++) if (labels[i].yy - labels[i - 1].yy < 16) labels[i].yy = labels[i - 1].yy + 16;
+    labels.forEach((l) => { svg += '<text class="endlabel" x="' + (x(n - 1) + 12) + '" y="' + (l.yy + 4) + '">' + l.s.name + ' ' + l.v.toFixed(1) + '%</text>'; });
+  }
+  svg += '<rect id="hit" x="' + (M.l - 10) + '" y="' + M.t + '" width="' + (W - M.l - M.r + 20) + '" height="' + (H - M.t - M.b) + '" fill="transparent"/>';
+  const chart = document.getElementById('chart');
+  chart.innerHTML = svg;
+
+  // ---- hover: crosshair + tooltip listing every series at the nearest measurement ----
+  const tip = document.getElementById('tip'), cross = document.getElementById('cross'), wrap = document.getElementById('chartwrap');
+  function show(evt) {
+    if (n === 0) return;
+    const box = chart.getBoundingClientRect();
+    const px = ((evt.clientX - box.left) / box.width) * W;
+    let i = n === 1 ? 0 : Math.round(((px - M.l) / (W - M.l - M.r)) * (n - 1));
+    i = Math.max(0, Math.min(n - 1, i));
+    const r = rows[i];
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('visibility', 'visible');
+    tip.innerHTML = '<strong>' + (i + 1) + ' · ' + day(r.date) + ' · ' + esc(r.label) + '</strong><div class="row"><span>Tests</span><span>' + (r.tests === null ? 'n/a' : r.tests) + '</span></div>' +
+      series.map((s) => '<div class="row"><span><i style="background:' + s.color + '"></i>' + s.name + '</span><span>' + r[s.key].covered + ' / ' + r[s.key].total + ' · ' + r[s.key].percent.toFixed(1) + '%</span></div>').join('');
+    tip.hidden = false;
+    const left = (x(i) / W) * box.width;
+    const flip = left + tip.offsetWidth + 16 > wrap.clientWidth;
+    tip.style.left = Math.max(0, flip ? left - tip.offsetWidth - 12 : left + 12) + 'px';
+    tip.style.top = '12px';
+  }
+  function hide() { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); }
+  const hit = document.getElementById('hit');
+  hit.addEventListener('pointermove', show);
+  hit.addEventListener('pointerdown', show);
+  hit.addEventListener('pointerleave', hide);
+</script>
+</body>
+</html>
