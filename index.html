@@ -62,6 +62,10 @@
   table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
   th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; white-space: nowrap; }
   td.what { white-space: normal; min-width: 220px; }
+  td.num, th.num { text-align: right; }
+  .note { color: var(--ink-2); font-size: 13.5px; margin-bottom: 12px; }
+  #tokchartwrap { min-width: 620px; }
+  svg text.barlabel { fill: var(--ink); font-weight: 500; }
   thead th { color: var(--ink-2); font-weight: 600; font-size: 12.5px; }
   td small, .muted { color: var(--muted); }
   .up { color: var(--up); } .down { color: var(--down); }
@@ -72,7 +76,7 @@
 <main>
   <header>
     <h1>GAD API spec coverage over time</h1>
-    <p class="lede">Share of the OpenAPI spec exercised by the <code>qa/</code> Playwright suite, measured on each commit to <code>main</code>. 10 measurements; page generated 2026-11-11T04:31:40.455Z.</p>
+    <p class="lede">Share of the OpenAPI spec exercised by the <code>qa/</code> Playwright suite, measured on each commit to <code>main</code>. 11 measurements; page generated 2026-11-11T14:14:47.043Z.</p>
   </header>
 
   <section class="headline" aria-label="First and latest measurement">
@@ -81,6 +85,7 @@
     <div><b>7 → 101 of 389</b><span>status codes</span></div>
     <div><b>1 → 22 of 97</b><span>parameters</span></div>
     <div><b>3 → 17 of 41</b><span>request bodies</span></div>
+    <div><b>16.8M</b><span>AI tokens across 6 pull requests</span></div>
   </section>
 
   <section class="panel">
@@ -90,17 +95,36 @@
   </section>
 
   <section class="panel">
+    <h2>AI tokens spent per pull request</h2>
+    <p class="note">Each bar sits on the measurement its pull request produced, in the same position as in the chart above. Pull requests without a measurement are only in the table at the bottom.</p>
+    <div class="scroll"><div id="tokchartwrap"><svg id="tokchart" viewBox="0 0 800 220" role="img" aria-label="Bar chart of AI tokens spent per pull request, placed on the measurement each pull request produced. The same numbers are in the tables below."></svg></div></div>
+  </section>
+
+  <section class="panel">
     <h2>Every measurement, newest first</h2>
     <div class="scroll"><table>
-      <thead><tr><th>Date</th><th>Commit</th><th>Tests</th><th>Operations</th><th>Status codes</th><th>Parameters</th><th>Request bodies</th><th>Change</th></tr></thead>
+      <thead><tr><th>Date</th><th>Commit</th><th>Tests</th><th class="num">AI tokens</th><th>Operations</th><th>Status codes</th><th>Parameters</th><th>Request bodies</th><th>Change</th></tr></thead>
       <tbody id="rows"></tbody>
+    </table></div>
+  </section>
+
+  <section class="panel">
+    <h2>AI tokens per pull request</h2>
+    <p class="note">Estimated from the Claude Code transcripts of the machine that did the work: every model call made while the pull request's branch was checked out, subagents included, up to the merge. Work done on <code>main</code> before the branch existed is not counted. Cache reads are context re-read from the cache on each call, which is why they dominate.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Pull request</th><th>Branch</th><th class="num">Calls</th><th class="num">Input</th><th class="num">Output</th><th class="num">Cache write</th><th class="num">Cache read</th><th class="num">Total</th><th>Drawn on</th></tr></thead>
+      <tbody id="prrows"></tbody>
     </table></div>
   </section>
 </main>
 
 <script>
-  const rows = [{"date":"2026-11-11T00:20:36.000Z","sha":"b198c8b13671380362b2e80c574c2b8278397f02","label":"Day 1 baseline: hand-written tests","tests":6,"testsFailed":false,"operations":{"covered":4,"total":170,"percent":2.4},"statuses":{"covered":7,"total":387,"percent":1.8},"parameters":{"covered":1,"total":96,"percent":1},"requestBodies":{"covered":3,"total":41,"percent":7.3}},{"date":"2026-11-11T00:21:33.000Z","sha":"53aeb9636cf66e04317c5ab02b74054c4d60a07f","label":"AI tests batch 1: articles and authentication gaps","tests":26,"testsFailed":false,"operations":{"covered":10,"total":170,"percent":5.9},"statuses":{"covered":26,"total":387,"percent":6.7},"parameters":{"covered":5,"total":96,"percent":5.2},"requestBodies":{"covered":5,"total":41,"percent":12.2}},{"date":"2026-11-11T00:22:16.000Z","sha":"1117ff538b215b0a007717dd0caeec06df1a32c9","label":"AI tests batch 2: comments gaps","tests":50,"testsFailed":false,"operations":{"covered":17,"total":170,"percent":10},"statuses":{"covered":48,"total":387,"percent":12.4},"parameters":{"covered":10,"total":96,"percent":10.4},"requestBodies":{"covered":8,"total":41,"percent":19.5}},{"date":"2026-11-11T00:25:05.000Z","sha":"2fa33d09bb7ead878027b06cba756ed3ec5dc580","label":"AI tests batch 3: likes held back, module disabled by feature flag","tests":50,"testsFailed":false,"operations":{"covered":17,"total":170,"percent":10},"statuses":{"covered":48,"total":387,"percent":12.4},"parameters":{"covered":10,"total":96,"percent":10.4},"requestBodies":{"covered":8,"total":41,"percent":19.5}},{"date":"2026-11-11T00:28:04.000Z","sha":"2b2c065bf169e8eb585505c7552f1c7fa2bad054","label":"AI tests batch 4: users gaps","tests":74,"testsFailed":false,"operations":{"covered":23,"total":170,"percent":13.5},"statuses":{"covered":67,"total":387,"percent":17.3},"parameters":{"covered":15,"total":96,"percent":15.6},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T01:48:49.000Z","sha":"496b52f3828ee87b6008826397e1403146c0b5cb","label":"Add article stats endpoint: GET /api/articles/{id}/stats (no tests yet)","tests":74,"testsFailed":false,"operations":{"covered":23,"total":171,"percent":13.5},"statuses":{"covered":67,"total":389,"percent":17.2},"parameters":{"covered":15,"total":97,"percent":15.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T01:51:30.000Z","sha":"f91489bde4f66a472745475b6055cc694fb9e020","label":"AI tests: cover GET /api/articles/{id}/stats (200, 404)","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T03:01:10.000Z","sha":"f2b9e68f22856eb8a3ca47ddb7c8efb9b53edca0","label":"#3 Add article stats endpoint: GET /api/articles/{id}/stats","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T04:07:17.000Z","sha":"53a289908abf8fb4693e8b6fa87133512389b2e2","label":"#5 Fix coverage history workflow: fetch the history branch first","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T04:31:01.000Z","sha":"6741ae4a4e20df9c067c0f59594071f21c30aaab","label":"#6 AI-generated API tests for book-shop-manage","tests":107,"testsFailed":false,"operations":{"covered":38,"total":171,"percent":22.2},"statuses":{"covered":101,"total":389,"percent":26},"parameters":{"covered":22,"total":97,"percent":22.7},"requestBodies":{"covered":17,"total":41,"percent":41.5}}];
+  const rows = [{"date":"2026-11-11T00:20:36.000Z","sha":"b198c8b13671380362b2e80c574c2b8278397f02","label":"Day 1 baseline: hand-written tests","tests":6,"testsFailed":false,"operations":{"covered":4,"total":170,"percent":2.4},"statuses":{"covered":7,"total":387,"percent":1.8},"parameters":{"covered":1,"total":96,"percent":1},"requestBodies":{"covered":3,"total":41,"percent":7.3}},{"date":"2026-11-11T00:21:33.000Z","sha":"53aeb9636cf66e04317c5ab02b74054c4d60a07f","label":"AI tests batch 1: articles and authentication gaps","tests":26,"testsFailed":false,"operations":{"covered":10,"total":170,"percent":5.9},"statuses":{"covered":26,"total":387,"percent":6.7},"parameters":{"covered":5,"total":96,"percent":5.2},"requestBodies":{"covered":5,"total":41,"percent":12.2}},{"date":"2026-11-11T00:22:16.000Z","sha":"1117ff538b215b0a007717dd0caeec06df1a32c9","label":"AI tests batch 2: comments gaps","tests":50,"testsFailed":false,"operations":{"covered":17,"total":170,"percent":10},"statuses":{"covered":48,"total":387,"percent":12.4},"parameters":{"covered":10,"total":96,"percent":10.4},"requestBodies":{"covered":8,"total":41,"percent":19.5}},{"date":"2026-11-11T00:25:05.000Z","sha":"2fa33d09bb7ead878027b06cba756ed3ec5dc580","label":"AI tests batch 3: likes held back, module disabled by feature flag","tests":50,"testsFailed":false,"operations":{"covered":17,"total":170,"percent":10},"statuses":{"covered":48,"total":387,"percent":12.4},"parameters":{"covered":10,"total":96,"percent":10.4},"requestBodies":{"covered":8,"total":41,"percent":19.5}},{"date":"2026-11-11T00:28:04.000Z","sha":"2b2c065bf169e8eb585505c7552f1c7fa2bad054","label":"AI tests batch 4: users gaps","tests":74,"testsFailed":false,"operations":{"covered":23,"total":170,"percent":13.5},"statuses":{"covered":67,"total":387,"percent":17.3},"parameters":{"covered":15,"total":96,"percent":15.6},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T01:48:49.000Z","sha":"496b52f3828ee87b6008826397e1403146c0b5cb","label":"Add article stats endpoint: GET /api/articles/{id}/stats (no tests yet)","tests":74,"testsFailed":false,"operations":{"covered":23,"total":171,"percent":13.5},"statuses":{"covered":67,"total":389,"percent":17.2},"parameters":{"covered":15,"total":97,"percent":15.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T01:51:30.000Z","sha":"f91489bde4f66a472745475b6055cc694fb9e020","label":"AI tests: cover GET /api/articles/{id}/stats (200, 404)","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T03:01:10.000Z","sha":"f2b9e68f22856eb8a3ca47ddb7c8efb9b53edca0","label":"#3 Add article stats endpoint: GET /api/articles/{id}/stats","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T04:07:17.000Z","sha":"53a289908abf8fb4693e8b6fa87133512389b2e2","label":"#5 Fix coverage history workflow: fetch the history branch first","tests":76,"testsFailed":false,"operations":{"covered":24,"total":171,"percent":14},"statuses":{"covered":69,"total":389,"percent":17.7},"parameters":{"covered":16,"total":97,"percent":16.5},"requestBodies":{"covered":10,"total":41,"percent":24.4}},{"date":"2026-11-11T04:31:01.000Z","sha":"6741ae4a4e20df9c067c0f59594071f21c30aaab","label":"#6 AI-generated API tests for book-shop-manage","tests":107,"testsFailed":false,"operations":{"covered":38,"total":171,"percent":22.2},"statuses":{"covered":101,"total":389,"percent":26},"parameters":{"covered":22,"total":97,"percent":22.7},"requestBodies":{"covered":17,"total":41,"percent":41.5}},{"date":"2026-11-11T14:14:06.000Z","sha":"851bd3453ccc056d1de1532dedaf22e75fc45819","label":"#7 Show AI tokens spent per pull request on the coverage history page","tests":107,"testsFailed":false,"operations":{"covered":38,"total":171,"percent":22.2},"statuses":{"covered":101,"total":389,"percent":26},"parameters":{"covered":22,"total":97,"percent":22.7},"requestBodies":{"covered":17,"total":41,"percent":41.5}}];
   const repo = "IvanFlores/ai-practice-automation-framework";
+  const prs = [{"branch":"ai/tests-day3","until":"2026-11-11T01:14:02.000Z","sha":"2b2c065bf169e8eb585505c7552f1c7fa2bad054","messages":40,"input":90,"output":37022,"cacheWrite":131835,"cacheRead":5077104,"total":5246051,"recordedAt":"2026-11-11T14:07:00.797Z","pr":1,"row":5},{"branch":"qa/day4-pipeline-tooling","until":"2026-11-11T01:45:08.000Z","messages":7,"input":14,"output":9822,"cacheWrite":18464,"cacheRead":1517399,"total":1545699,"recordedAt":"2026-11-11T14:07:02.758Z","pr":2,"row":null},{"branch":"feature/article-stats-endpoint","until":"2026-11-11T03:01:11.000Z","messages":27,"input":62,"output":15089,"cacheWrite":63447,"cacheRead":3768604,"total":3847202,"recordedAt":"2026-11-11T14:07:04.445Z","pr":3,"row":8},{"branch":"qa/coverage-history","until":"2026-11-11T04:02:19.000Z","messages":8,"input":16,"output":21320,"cacheWrite":28751,"cacheRead":2283263,"total":2333350,"recordedAt":"2026-11-11T14:07:06.166Z","pr":4,"row":null},{"branch":"fix/coverage-history-fetch","until":"2026-11-11T04:07:17.000Z","messages":1,"input":2,"output":383,"cacheWrite":1342,"cacheRead":301726,"total":303453,"recordedAt":"2026-11-11T14:07:08.619Z","pr":5,"row":9},{"branch":"ai/tests-book-shop-manage","until":"2026-11-11T04:31:01.000Z","messages":21,"input":44,"output":35701,"cacheWrite":158458,"cacheRead":3299993,"total":3494196,"recordedAt":"2026-11-11T14:07:10.462Z","pr":6,"row":10}];
+  const tokensAt = (i) => prs.find((p) => p.row === i + 1);
+  const num = (v) => v.toLocaleString('en-US');
+  const millions = (v) => (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? Math.round(v / 1e3) + 'k' : String(v));
   const series = [
     { key: 'operations',    name: 'Operations',     color: 'var(--s1)' },
     { key: 'statuses',      name: 'Status codes',   color: 'var(--s2)' },
@@ -124,8 +148,10 @@
       return '<td>' + cellText(r[k]) + d + '</td>';
     };
     const sha = repo ? '<a href="https://github.com/' + repo + '/commit/' + r.sha + '"><code>' + r.sha.slice(0, 7) + '</code></a>' : '<code>' + r.sha.slice(0, 7) + '</code>';
+    const t = tokensAt(i);
+    const tokenCell = prs.length ? '<td class="num">' + (t ? num(t.total) + ' <small>#' + t.pr + '</small>' : '<span class="muted">n/a</span>') + '</td>' : '';
     const tests = (r.tests === null ? '<span class="muted">n/a</span>' : r.tests) + (r.testsFailed ? ' <span class="failed">failed</span>' : '');
-    return '<tr><th scope="row">' + day(r.date) + '</th><td>' + sha + '</td><td>' + tests + '</td>' + series.map((s) => cell(s.key)).join('') + '<td class="what">' + esc(r.label) + '</td></tr>';
+    return '<tr><th scope="row">' + day(r.date) + '</th><td>' + sha + '</td><td>' + tests + '</td>' + tokenCell + series.map((s) => cell(s.key)).join('') + '<td class="what">' + esc(r.label) + '</td></tr>';
   }).reverse().join('');
 
   // ---- legend ----
@@ -182,6 +208,7 @@
     const r = rows[i];
     cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('visibility', 'visible');
     tip.innerHTML = '<strong>' + (i + 1) + ' · ' + day(r.date) + ' · ' + esc(r.label) + '</strong><div class="row"><span>Tests</span><span>' + (r.tests === null ? 'n/a' : r.tests) + '</span></div>' +
+      (tokensAt(i) ? '<div class="row"><span>AI tokens (#' + tokensAt(i).pr + ')</span><span>' + num(tokensAt(i).total) + '</span></div>' : '') +
       series.map((s) => '<div class="row"><span><i style="background:' + s.color + '"></i>' + s.name + '</span><span>' + r[s.key].covered + ' / ' + r[s.key].total + ' · ' + r[s.key].percent.toFixed(1) + '%</span></div>').join('');
     tip.hidden = false;
     const left = (x(i) / W) * box.width;
@@ -194,6 +221,36 @@
   hit.addEventListener('pointermove', show);
   hit.addEventListener('pointerdown', show);
   hit.addEventListener('pointerleave', hide);
+
+  // ---- tokens: bars on the same x positions as the chart above, and one table row per pull request ----
+  if (prs.length) {
+    const TH = 220, TM = { t: 24, b: 30 };
+    const top = Math.max(...prs.map((p) => p.total));
+    const step = Math.pow(10, Math.floor(Math.log10(top)));
+    const tick = top / step >= 5 ? step : top / step >= 2 ? step / 2 : step / 5;
+    const TMAX = Math.ceil(top / tick) * tick;
+    const ty = (v) => TM.t + (1 - v / TMAX) * (TH - TM.t - TM.b);
+    const bw = Math.min(40, n > 1 ? ((W - M.l - M.r) / (n - 1)) * 0.6 : 40);
+    let bars = '';
+    for (let v = 0; v <= TMAX + tick / 2; v += tick) {
+      bars += '<line x1="' + M.l + '" x2="' + (W - M.r) + '" y1="' + ty(v) + '" y2="' + ty(v) + '" stroke="' + (v === 0 ? 'var(--axis)' : 'var(--grid)') + '" stroke-width="1"/>';
+      bars += '<text x="' + (M.l - 8) + '" y="' + (ty(v) + 4) + '" text-anchor="end">' + millions(v) + '</text>';
+    }
+    prs.filter((p) => p.row !== null).forEach((p) => {
+      const cx = x(p.row - 1);
+      bars += '<rect x="' + (cx - bw / 2) + '" y="' + ty(p.total) + '" width="' + bw + '" height="' + (ty(0) - ty(p.total)) + '" rx="2" fill="var(--ink-2)"><title>#' + p.pr + ' ' + esc(p.branch) + ': ' + num(p.total) + ' tokens</title></rect>';
+      bars += '<text class="barlabel" x="' + cx + '" y="' + (ty(p.total) - 6) + '" text-anchor="middle">' + millions(p.total) + '</text>';
+      bars += '<text x="' + cx + '" y="' + (TH - TM.b + 18) + '" text-anchor="middle">' + p.row + ' · #' + p.pr + '</text>';
+    });
+    document.getElementById('tokchart').innerHTML = bars;
+
+    document.getElementById('prrows').innerHTML = prs.map((p) => {
+      const link = repo ? '<a href="https://github.com/' + repo + '/pull/' + p.pr + '">#' + p.pr + '</a>' : '#' + p.pr;
+      const cells = [p.messages, p.input, p.output, p.cacheWrite, p.cacheRead, p.total].map((v) => '<td class="num">' + num(v) + '</td>').join('');
+      const where = p.row === null ? '<span class="muted">no measurement</span>' : 'measurement ' + p.row;
+      return '<tr><th scope="row">' + link + '</th><td><code>' + esc(p.branch) + '</code></td>' + cells + '<td>' + where + '</td></tr>';
+    }).join('');
+  }
 </script>
 </body>
 </html>
