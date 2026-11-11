@@ -24,13 +24,23 @@ const {
   parsePublishStats,
   parseUserActivityStats,
   parseUserPublicationStats,
+  parseSingleArticleStats,
 } = require("../helpers/stats.helpers");
 const schema = require("../public/tools/schema/openapi_rest_demo.json");
 
 const statsRoutes = (req, res, next) => {
   try {
     const urlEnds = req.url.replace(/\/\/+/g, "/");
-    if (req.method === "GET" && urlEnds.includes("api/stats/users/articles")) {
+    const singleArticleStatsUrl = urlEnds.match(/^\/api\/articles\/([^/?]+)\/stats\/?(\?.*)?$/);
+    if (req.method === "GET" && singleArticleStatsUrl !== null) {
+      const stats = parseSingleArticleStats(fullDb(), singleArticleStatsUrl[1]);
+      if (isUndefined(stats)) {
+        res.status(HTTP_NOT_FOUND).json({});
+        return;
+      }
+      res.status(HTTP_OK).json(stats);
+      return;
+    } else if (req.method === "GET" && urlEnds.includes("api/stats/users/articles")) {
       const stats = parseUserPublicationStats(fullDb(), "articles");
       res.status(HTTP_OK).json(stats);
       return;
