@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { test as base, type APIRequestContext, type APIResponse } from '@playwright/test';
+import { expect as baseExpect, test as base, type APIRequestContext, type APIResponse } from '@playwright/test';
 
 export { expect } from '@playwright/test';
 
@@ -70,6 +70,31 @@ export class Api {
     });
     this.record(method, path, res.status(), opts);
     return res;
+  }
+
+  /**
+   * Waits until a record created through the API has reached GAD's db file.
+   * GAD serves plain GETs from memory, but its own handlers (ownership checks, soft delete, PUT-or-create,
+   * stats) read the db file, which is written a moment after the create is answered. A call sent in between
+   * acts on stale data: a PUT creates instead of updating, a DELETE answers 404.
+   * Call it after creating a record the test will change, delete or count: `await api.waitUntilStored('articles', id)`.
+   * The probe (`GET /api/db`, the raw file) is test infrastructure, not an operation under test, so it is not recorded.
+   */
+  async waitUntilStored(collection: string, id: unknown): Promise<void> {
+    // Let the write finish before the first probe. GAD (steno) writes a temp file and renames it over the db
+    // file; on Windows that rename fails, and the write is lost, if the db file is being read at that moment.
+    // Probing immediately would cause exactly that collision.
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    await baseExpect
+      .poll(
+        async () => {
+          const res = await this.request.get('/api/db');
+          const db = (await res.json()) as Record<string, { id?: unknown }[] | undefined>;
+          return (db[collection] ?? []).some((row) => String(row.id) === String(id));
+        },
+        { message: `${collection} ${String(id)} did not reach the db file`, timeout: 5_000, intervals: [100, 200, 400] },
+      )
+      .toBe(true);
   }
 
   private record(method: Method, rawPath: string, status: number, opts: CallOptions): void {

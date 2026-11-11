@@ -24,6 +24,7 @@ async function createUser(api: Api) {
   const created = await api.post('/api/users', { data: user });
   await expectStatus(created, 201);
   const { id } = await expectJsonHas(created, 'id');
+  await api.waitUntilStored('users', id);
 
   const login = await api.post('/api/login', { data: { email: user.email, password: user.password } });
   await expectStatus(login, 200);

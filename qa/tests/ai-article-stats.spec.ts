@@ -19,6 +19,8 @@ test('GET /api/articles/{id}/stats existing article returns 200', async ({ api, 
     data: { article_id: id, body: `QA ai stats comment ${stamp}`, date: pastDate() },
   });
   await expectStatus(commented, 201);
+  const { id: commentId } = await expectJsonHas(commented, 'id');
+  await authApi.waitUntilStored('comments', commentId);
 
   const res = await api.get(`/api/articles/${id}/stats`);
 

@@ -16,6 +16,7 @@ async function createArticle(authApi: Api): Promise<unknown> {
   const res = await authApi.post('/api/articles', { data: newArticle() });
   await expectStatus(res, 201);
   const article = await expectJsonHas(res, 'id');
+  await authApi.waitUntilStored('articles', article.id);
   return article.id;
 }
 

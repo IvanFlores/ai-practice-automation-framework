@@ -56,6 +56,9 @@ Pattern: `<METHOD> <path> <condition> returns <status>`. The path is the real UR
   To test PUT/PATCH/DELETE on a user, create one with `POST /api/users`, log in with `api.post('/api/login', ...)`
   and use `api.withToken(access_token)`.
 - Never call `/api/config/*` or `/api/restoreDB` from a test: flags and restores affect every other test.
+- GAD answers a create before the record reaches its db file, and its own handlers read that file. After
+  creating a record the test will change, delete or count, call `await api.waitUntilStored('<collection>', id)`
+  (e.g. `'articles'`, `'comments'`, `'users'`). Waiting on a plain GET is not enough: GETs are served from memory.
 - `date` fields: send a past ISO date (e.g. `new Date(Date.now() - 86_400_000).toISOString()`).
   GAD rejects dates it considers in the future.
 

@@ -14,6 +14,7 @@ async function createArticle(authApi: Api): Promise<unknown> {
   });
   await expectStatus(res, 201);
   const article = await expectJsonHas(res, 'id');
+  await authApi.waitUntilStored('articles', article.id);
   return article.id;
 }
 
@@ -31,6 +32,7 @@ async function createComment(authApi: Api): Promise<{ id: unknown; articleId: un
   const res = await authApi.post('/api/comments', { data: newComment(articleId) });
   await expectStatus(res, 201);
   const comment = await expectJsonHas(res, 'id');
+  await authApi.waitUntilStored('comments', comment.id);
   return { id: comment.id, articleId };
 }
 
