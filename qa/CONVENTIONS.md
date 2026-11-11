@@ -80,3 +80,5 @@ Pattern: `<METHOD> <path> <condition> returns <status>`. The path is the real UR
   (PowerShell: `$env:PORT=3002; npx playwright test`). Playwright then starts and stops GAD itself.
 - On a PR, CI writes `pr-gaps.json`: the gaps that PR introduced. `npm run pr:gaps -- <pr> --repo <owner/name>`
   downloads it. The two-agent pipeline that uses it is described in `agents/README.md`.
+- Coverage over time: every push to `main` adds a row to `history.jsonl` on the `coverage-history` branch and
+  redraws `index.html` there (`.github/workflows/qa-coverage-history.yml`, `npm run coverage:history`).

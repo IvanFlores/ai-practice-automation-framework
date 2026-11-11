@@ -14,7 +14,8 @@ export default defineConfig({
   workers: 1,
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  reporter: 'list',
+  // The JSON report gives the coverage history its test count (coverage/history.ts).
+  reporter: [['list'], ['json', { outputFile: 'test-results/results.json' }]],
   globalSetup: './framework/global-setup.ts',
   use: {
     baseURL: `http://localhost:${PORT}`,
