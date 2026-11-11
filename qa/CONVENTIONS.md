@@ -75,3 +75,8 @@ Pattern: `<METHOD> <path> <condition> returns <status>`. The path is the real UR
   `coverage-report/coverage.json` and `coverage-report/gaps.json`. `npm run ci` runs tests plus the gated check.
 - Every recorded call counts, including setup calls. Pick the next test from `gaps.json`.
 - To cover a documented header parameter, pass it via `{ headers: {...} }`: header names are logged.
+- Locally, Playwright reuses whatever GAD already listens on `PORT` (3001 in `.env`), which may be another
+  checkout. To test this checkout's code, run on a free port: `PORT=3002 npx playwright test`
+  (PowerShell: `$env:PORT=3002; npx playwright test`). Playwright then starts and stops GAD itself.
+- On a PR, CI writes `pr-gaps.json`: the gaps that PR introduced. `npm run pr:gaps -- <pr> --repo <owner/name>`
+  downloads it. The two-agent pipeline that uses it is described in `agents/README.md`.

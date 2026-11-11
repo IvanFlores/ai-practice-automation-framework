@@ -12,5 +12,5 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true
   },
-  "include": ["playwright.config.ts", "framework/**/*.ts", "coverage/**/*.ts", "tests/**/*.ts"]
+  "include": ["playwright.config.ts", "framework/**/*.ts", "coverage/**/*.ts", "agents/**/*.ts", "tests/**/*.ts"]
 }

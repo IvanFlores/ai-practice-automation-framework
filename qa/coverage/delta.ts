@@ -1,6 +1,6 @@
 // Compares two coverage reports (PR branch vs base branch) and renders the results:
 // a Markdown summary (job summary + PR comment) and a self-contained HTML report (pipeline artifact).
-import type { CoverageReport, OperationCoverage, Ratio } from './core';
+import { buildGaps, type CoverageReport, type Gap, type OperationCoverage, type Ratio } from './core';
 
 /** Hidden marker so CI can find and update its own PR comment instead of adding a new one. */
 export const COMMENT_MARKER = '<!-- qa-coverage-report -->';
@@ -28,6 +28,11 @@ export interface Delta {
   /** `GET /api/articles/{id}` for operations, `GET /api/articles/{id} -> 404` for statuses. */
   newlyCovered: { operations: string[]; statuses: string[] };
   lost: { operations: string[]; statuses: string[] };
+  /**
+   * Gaps on this branch that are not gaps on the base: behaviour the PR added to the spec without a test,
+   * or coverage the PR removed. This is the work list for the test agent (written to pr-gaps.json).
+   */
+  introducedGaps: Gap[];
   topGaps: TopGap[];
 }
 
@@ -40,6 +45,22 @@ const minus = (a: string[], b: string[]) => {
   return a.filter((x) => !drop.has(x));
 };
 const round1 = (n: number) => Math.round(n * 10) / 10;
+const gapKey = (g: Gap) =>
+  [g.type, g.method, g.path, g.status ?? '', g.parameter ? `${g.parameter.in}:${g.parameter.name}` : ''].join('|');
+
+function introducedGaps(head: CoverageReport, base: CoverageReport): Gap[] {
+  const known = new Set(buildGaps(base).map(gapKey));
+  return buildGaps(head).filter((g) => !known.has(gapKey(g)));
+}
+
+export const describeGap = (g: Gap) =>
+  g.type === 'operation'
+    ? `${g.method} ${g.path}: never called`
+    : g.type === 'status'
+      ? `${g.method} ${g.path} -> ${g.status}`
+      : g.type === 'parameter'
+        ? `${g.method} ${g.path}: ${g.parameter!.in} parameter "${g.parameter!.name}"`
+        : `${g.method} ${g.path}: request body`;
 
 export function computeDelta(head: CoverageReport, base: CoverageReport | null, topGapCount = 10): Delta {
   const metric = (label: string, key: keyof CoverageReport['summary']): MetricDelta => {
@@ -68,6 +89,7 @@ export function computeDelta(head: CoverageReport, base: CoverageReport | null, 
     lost: base
       ? { operations: minus(coveredOps(base), coveredOps(head)), statuses: minus(coveredStatuses(base), coveredStatuses(head)) }
       : { operations: [], statuses: [] },
+    introducedGaps: base ? introducedGaps(head, base) : [],
     topGaps: rankGaps(head).slice(0, topGapCount),
   };
 }
@@ -124,6 +146,11 @@ export function formatMarkdown(delta: Delta, opts: { testsFailed?: boolean; repo
     };
     list('Newly covered status codes', n.statuses);
     list('Lost status codes', l.statuses);
+
+    const intro = delta.introducedGaps;
+    out.push('', `**Gaps introduced by this PR:** ${intro.length}` + (intro.length ? ' (machine-readable: `pr-gaps.json` in the artifact)' : '.'));
+    for (const g of intro.slice(0, 15)) out.push('- `' + describeGap(g) + '`');
+    if (intro.length > 15) out.push(`- ... and ${intro.length - 15} more`);
   }
 
   out.push('', `### Top ${delta.topGaps.length} gaps`);
@@ -226,6 +253,7 @@ export function formatHtml(head: CoverageReport, delta: Delta, meta: { title: st
 <div class="cols">
 <section><h2>Newly covered status codes (${delta.newlyCovered.statuses.length})</h2>${list(delta.newlyCovered.statuses)}</section>
 <section><h2>Lost status codes (${delta.lost.statuses.length})</h2>${list(delta.lost.statuses)}</section>
+<section><h2>Gaps introduced by this PR (${delta.introducedGaps.length})</h2>${list(delta.introducedGaps.map(describeGap))}</section>
 <section><h2>Top gaps</h2>${gapItems ? `<ol>${gapItems}</ol>` : '<p class="muted">None.</p>'}</section>
 </div>
 ${head.unmatchedCalls.length ? `<h2>Calls matching no documented operation</h2>${list(head.unmatchedCalls.map((c) => `${c.method} ${c.path} -> ${c.status} (x${c.count})`))}` : ''}
