@@ -82,3 +82,6 @@ Pattern: `<METHOD> <path> <condition> returns <status>`. The path is the real UR
   downloads it. The two-agent pipeline that uses it is described in `agents/README.md`.
 - Coverage over time: every push to `main` adds a row to `history.jsonl` on the `coverage-history` branch and
   redraws `index.html` there (`.github/workflows/qa-coverage-history.yml`, `npm run coverage:history`).
+- AI tokens per PR: the same page shows them from `coverage/tokens.json`. CI cannot measure them (they come from
+  the local Claude Code transcripts), so before merging a PR run `npm run coverage:tokens -- record --pr <n>` on its
+  branch and commit the file. Recording after the merge needs `--branch <name> --until <merge time>`.
