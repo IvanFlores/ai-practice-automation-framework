@@ -1,0 +1,114 @@
+# Coverage history: on every push to main, measure spec coverage and add one row to the history kept on the
+# `coverage-history` branch (history.jsonl), then regenerate the one-page view (index.html) next to it.
+# The page is also uploaded as an artifact. To browse it without downloading, enable GitHub Pages for the
+# `coverage-history` branch (Settings > Pages); nothing here turns Pages on.
+name: qa-coverage-history
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write # to push to the coverage-history branch
+
+concurrency:
+  group: qa-coverage-history
+  cancel-in-progress: false # every commit on main gets its row, in order
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: 'true'
+      PORT: '3001'
+      RESTORE_PATH: /api/restoreDB
+      SPEC_FILE: public/tools/schema/openapi_rest_demo.json
+      HISTORY_BRANCH: coverage-history
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Seed-user credentials
+        run: |
+          node -e '
+            const u = require("./db/db-base.json").users.find((x) => x.id === 1);
+            require("fs").appendFileSync(process.env.GITHUB_ENV, `GAD_EMAIL=${u.email}\nGAD_PASSWORD=${u.password}\n`);
+          '
+
+      - name: Install
+        run: npm ci && npm ci --prefix qa
+
+      - name: API tests
+        id: tests
+        continue-on-error: true # a red main still gets a row, marked as failed
+        working-directory: qa
+        run: npx playwright test
+
+      - name: Spec coverage
+        working-directory: qa
+        run: npm run coverage -- --quiet
+
+      # The history lives on its own branch so that recording a run never adds a commit to main.
+      - name: Check out the history branch into .history/
+        run: |
+          if git ls-remote --exit-code --heads origin "$HISTORY_BRANCH" > /dev/null; then
+            git worktree add .history "origin/$HISTORY_BRANCH" --detach
+          else
+            git worktree add --detach .history
+            git -C .history checkout --orphan "$HISTORY_BRANCH"
+            git -C .history rm -rf --quiet .
+          fi
+
+      - name: Add this commit to the history and redraw the page
+        working-directory: qa
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMMIT_DATE: ${{ github.event.head_commit.timestamp }}
+        run: |
+          # Message and date go through the environment: a multi-line message is not a safe argument.
+          export COMMIT_MESSAGE="${COMMIT_MESSAGE:-$(git log -1 --format=%B)}"
+          export COMMIT_DATE="${COMMIT_DATE:-$(git log -1 --format=%cI)}"
+          npm run -s coverage:history -- append \
+            --history ../.history/history.jsonl \
+            --coverage coverage-report/coverage.json \
+            --results test-results/results.json \
+            --sha "$GITHUB_SHA" \
+            ${{ steps.tests.outcome == 'failure' && '--tests-failed' || '' }}
+          npm run -s coverage:history -- render \
+            --history ../.history/history.jsonl \
+            --out ../.history/index.html \
+            --repo "$GITHUB_REPOSITORY"
+
+      - name: Push the history branch
+        working-directory: .history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add history.jsonl index.html
+          git commit -m "Coverage history: ${GITHUB_SHA::7}" || { echo "Nothing to record"; exit 0; }
+          git push origin "HEAD:refs/heads/$HISTORY_BRANCH"
+
+      - name: Job summary
+        run: |
+          {
+            echo "## Coverage history"
+            echo "Recorded \`${GITHUB_SHA::7}\`. $(wc -l < .history/history.jsonl) measurements on the \`$HISTORY_BRANCH\` branch."
+            echo "The page is \`index.html\` in the \`qa-coverage-history\` artifact of this run."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the page
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-coverage-history
+          path: |
+            .history/index.html
+            .history/history.jsonl
+
+      - name: Fail if the API tests failed
+        if: steps.tests.outcome == 'failure'
+        run: echo "::error::API tests failed on main" && exit 1
