@@ -20,10 +20,7 @@ test('GET /api/articles/{id}/stats existing article returns 200', async ({ api, 
   });
   await expectStatus(commented, 201);
   const { id: commentId } = await expectJsonHas(commented, 'id');
-  // GAD answers a write before the record is readable, so wait until the comment is visible.
-  await expect
-    .poll(async () => (await authApi.get(`/api/comments/${commentId}`)).status(), { timeout: 5_000 })
-    .toBe(200);
+  await authApi.waitUntilStored('comments', commentId);
 
   const res = await api.get(`/api/articles/${id}/stats`);
 
