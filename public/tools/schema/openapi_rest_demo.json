@@ -3674,6 +3674,56 @@
         }
       }
     },
+    "/articles/{id}/stats": {
+      "get": {
+        "tags": ["articles"],
+        "summary": "Get stats of a single article",
+        "description": "Returns statistics for one article: its id, the number of comments on it and the number of words in its body",
+        "operationId": "getSingleArticleStats",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of article to return stats for",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Single article stats received",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SingleArticleStats"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Article not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Empty object",
+                  "maxProperties": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/articles/search": {
       "get": {
         "tags": ["search"],
@@ -8201,6 +8251,33 @@
           "additionalMaintenanceHours",
           "hourlyCost"
         ]
+      },
+      "SingleArticleStats": {
+        "type": "object",
+        "required": ["id", "comments", "words"],
+        "properties": {
+          "id": {
+            "description": "Article ID",
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "comments": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of comments on the article"
+          },
+          "words": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of words in the article body"
+          }
+        }
       },
       "UserActivityStats": {
         "type": "object",

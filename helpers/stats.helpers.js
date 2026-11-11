@@ -1,6 +1,6 @@
 const { isBugDisabled } = require("../config/config-manager");
 const { BugConfigKeys } = require("../config/enums");
-const { isUndefined } = require("./compare.helpers");
+const { isUndefined, areIdsEqual, isInactive } = require("./compare.helpers");
 const { getDateTimeFromString } = require("./datetime.helpers");
 const { pad } = require("./helpers");
 
@@ -320,7 +320,24 @@ function parseUserPublicationStatsByDates(dbDataJson, entityName = "articles") {
   return { entitiesByYear, entitiesByMonth, entitiesByDay };
 }
 
+function parseSingleArticleStats(dbDataJson, articleId) {
+  const foundArticle = dbDataJson["articles"].find((article) => areIdsEqual(article["id"], articleId));
+
+  if (isUndefined(foundArticle) || isInactive(foundArticle)) {
+    return undefined;
+  }
+
+  const comments = dbDataJson["comments"].filter(
+    (comment) => areIdsEqual(comment["article_id"], foundArticle.id) && !isInactive(comment)
+  );
+  const body = typeof foundArticle.body === "string" ? foundArticle.body.trim() : "";
+  const words = body.length === 0 ? 0 : body.split(/\s+/).length;
+
+  return { id: foundArticle.id, comments: comments.length, words };
+}
+
 module.exports = {
+  parseSingleArticleStats,
   parseUserStats,
   parseArticleStats,
   parseUserActivityStats,
