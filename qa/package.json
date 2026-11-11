@@ -1,0 +1,19 @@
+{
+  "name": "gad-qa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "coverage": "tsx coverage/cli.ts",
+    "test:coverage-tool": "tsx --test coverage/core.test.ts coverage/delta.test.ts",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run test:coverage-tool && playwright test && tsx coverage/cli.ts --fail-on-unmatched",
+    "coverage:report": "tsx coverage/pr-report.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

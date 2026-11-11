@@ -1,0 +1,8326 @@
+[
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/login",
+    "operationId": "userValidation",
+    "tags": [
+      "authentication"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/login",
+    "operationId": "userValidation",
+    "tags": [
+      "authentication"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/login",
+    "operationId": "userValidation",
+    "tags": [
+      "authentication"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/debug/exit",
+    "operationId": "exitApplication",
+    "tags": [
+      "debug"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/debug/exit",
+    "operationId": "exitApplication",
+    "tags": [
+      "debug"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/debug/restart",
+    "operationId": "restartApplication",
+    "tags": [
+      "debug"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/debug/restart",
+    "operationId": "restartApplication",
+    "tags": [
+      "debug"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/articles",
+    "operationId": "getArticles",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/articles",
+    "operationId": "getArticles",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/articles",
+    "operationId": "postArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": true,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/articles",
+    "operationId": "postArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": true,
+    "status": "422"
+  },
+  {
+    "type": "operation",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PUT",
+    "path": "/api/articles/{id}",
+    "operationId": "putArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/articles/{id}",
+    "operationId": "patchArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/articles/{id}",
+    "operationId": "deleteArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/articles/{id}",
+    "operationId": "deleteArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/articles/{id}",
+    "operationId": "deleteArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/articles/{id}",
+    "operationId": "deleteArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "parameter",
+    "method": "DELETE",
+    "path": "/api/articles/{id}",
+    "operationId": "deleteArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "HEAD",
+    "path": "/api/articles/{id}",
+    "operationId": "headArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/articles/{id}",
+    "operationId": "headArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/articles/{id}",
+    "operationId": "headArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/articles/{id}",
+    "operationId": "headArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "HEAD",
+    "path": "/api/articles/{id}",
+    "operationId": "headArticle",
+    "tags": [
+      "articles"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/users",
+    "operationId": "getUsers",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/users",
+    "operationId": "getUsers",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/users",
+    "operationId": "postUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": true,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/users",
+    "operationId": "postUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": true,
+    "status": "409"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/users",
+    "operationId": "postUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": true,
+    "status": "422"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/users/{id}",
+    "operationId": "getUserById",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/users/{id}",
+    "operationId": "getUserById",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/users/{id}",
+    "operationId": "getUserById",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/users/{id}",
+    "operationId": "getUserById",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/{id}",
+    "operationId": "getUserById",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PUT",
+    "path": "/api/users/{id}",
+    "operationId": "putUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/users/{id}",
+    "operationId": "patchUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/users/{id}",
+    "operationId": "deleteUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/users/{id}",
+    "operationId": "deleteUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/users/{id}",
+    "operationId": "deleteUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/users/{id}",
+    "operationId": "deleteUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "DELETE",
+    "path": "/api/users/{id}",
+    "operationId": "deleteUser",
+    "tags": [
+      "users"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "HEAD",
+    "path": "/api/users/{id}",
+    "operationId": "headUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/users/{id}",
+    "operationId": "headUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/users/{id}",
+    "operationId": "headUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/users/{id}",
+    "operationId": "headUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "HEAD",
+    "path": "/api/users/{id}",
+    "operationId": "headUser",
+    "tags": [
+      "users"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/comments",
+    "operationId": "getComments",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/comments",
+    "operationId": "getComments",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/comments",
+    "operationId": "createComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/comments",
+    "operationId": "createComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/comments",
+    "operationId": "createComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/comments",
+    "operationId": "createComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/comments",
+    "operationId": "createComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/comments",
+    "operationId": "createComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "getArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "getArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "getArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "getArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PUT",
+    "path": "/api/article-labels/articles/{id}",
+    "operationId": "putArticleLabels",
+    "tags": [
+      "article-labels"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/labels",
+    "operationId": "getLabels",
+    "tags": [
+      "labels"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/labels",
+    "operationId": "getLabels",
+    "tags": [
+      "labels"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/labels",
+    "operationId": "getLabels",
+    "tags": [
+      "labels"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/likes",
+    "operationId": "createLike",
+    "tags": [
+      "likes"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/likes/article/{id}",
+    "operationId": "getLikesForArticleById",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article/{id}",
+    "operationId": "getLikesForArticleById",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article/{id}",
+    "operationId": "getLikesForArticleById",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/likes/article/{id}",
+    "operationId": "getLikesForArticleById",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/likes/article",
+    "operationId": "getLikesForArticle",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article",
+    "operationId": "getLikesForArticle",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article",
+    "operationId": "getLikesForArticle",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/likes/comment/{id}",
+    "operationId": "getLikesForComment",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/comment/{id}",
+    "operationId": "getLikesForComment",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/comment/{id}",
+    "operationId": "getLikesForComment",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/likes/comment/{id}",
+    "operationId": "getLikesForComment",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/likes/article/mylikes",
+    "operationId": "getMyLikes",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article/mylikes",
+    "operationId": "getMyLikes",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article/mylikes",
+    "operationId": "getMyLikes",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/likes/article/mylikes",
+    "operationId": "getMyLikes",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/likes/article/mylikes",
+    "operationId": "getMyLikes",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "query",
+      "required": true
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/likes/article/mylikes",
+    "operationId": "getMyLikes",
+    "tags": [
+      "likes"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "userid",
+      "in": "header",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/captcha",
+    "operationId": null,
+    "tags": [
+      "captcha"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/files/uploaded",
+    "operationId": "getFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded",
+    "operationId": "getFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded",
+    "operationId": "getFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded",
+    "operationId": "getFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/files/uploaded/{userId}",
+    "operationId": "getUserFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/{userId}",
+    "operationId": "getUserFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/{userId}",
+    "operationId": "getUserFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/{userId}",
+    "operationId": "getUserFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/files/uploaded/{userId}",
+    "operationId": "getUserFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "userId",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/files/uploaded/public",
+    "operationId": "getPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/public",
+    "operationId": "getPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/public",
+    "operationId": "getPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/files/uploaded/public/users/{userIds}",
+    "operationId": "getUsersPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/public/users/{userIds}",
+    "operationId": "getUsersPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/files/uploaded/public/users/{userIds}",
+    "operationId": "getUsersPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/files/uploaded/public/users/{userIds}",
+    "operationId": "getUsersPublicFiles",
+    "tags": [
+      "files"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "userIds",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/flashposts",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "DELETE",
+    "path": "/api/flashposts/{id}",
+    "operationId": null,
+    "tags": [
+      "flashposts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-authors",
+    "operationId": "getBookAuthors",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-authors",
+    "operationId": "getBookAuthors",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-authors",
+    "operationId": "getBookAuthors",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-genres",
+    "operationId": "getBookGenres",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-genres",
+    "operationId": "getBookGenres",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-genres",
+    "operationId": "getBookGenres",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-roles",
+    "operationId": "getBookShopRoles",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-roles",
+    "operationId": "getBookShopRoles",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-roles",
+    "operationId": "getBookShopRoles",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "getUserPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "getUserPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "getUserPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "getUserPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "PUT",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "updatePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "updatePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "updatePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "updatePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "PUT",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "updatePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "deletePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "deletePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "deletePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-account-payment-cards",
+    "operationId": "deletePaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-account-payment-cards/topup",
+    "operationId": "topUpPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-account-payment-cards/topup",
+    "operationId": "topUpPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-account-payment-cards/topup",
+    "operationId": "topUpPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-account-payment-cards/topup",
+    "operationId": "topUpPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-account-payment-cards/topup",
+    "operationId": "topUpPaymentCard",
+    "tags": [
+      "book-shop-account-payment-cards"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-order-statuses",
+    "operationId": "getBookShopOrderStatuses",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-order-statuses",
+    "operationId": "getBookShopOrderStatuses",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-order-statuses",
+    "operationId": "getBookShopOrderStatuses",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-orders",
+    "operationId": "getUserOrders",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-orders",
+    "operationId": "getUserOrders",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-orders",
+    "operationId": "getUserOrders",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-orders",
+    "operationId": "getUserOrders",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-orders",
+    "operationId": "createOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders",
+    "operationId": "createOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders",
+    "operationId": "createOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders",
+    "operationId": "createOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/book-shop-orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-orders/coupon",
+    "operationId": "applyCoupon",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/coupon",
+    "operationId": "applyCoupon",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/coupon",
+    "operationId": "applyCoupon",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/coupon",
+    "operationId": "applyCoupon",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/coupon",
+    "operationId": "applyCoupon",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-orders/coupon",
+    "operationId": "applyCoupon",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "addItemToOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "addItemToOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "addItemToOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "addItemToOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "addItemToOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "addItemToOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "removeItemFromOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "removeItemFromOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "removeItemFromOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-orders/items",
+    "operationId": "removeItemFromOrder",
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "requestBody",
+    "method": "DELETE",
+    "path": "/api/book-shop-order-items",
+    "operationId": null,
+    "tags": [
+      "book-shop-orders"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/books",
+    "operationId": "getBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/books",
+    "operationId": "getBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/books",
+    "operationId": "getBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/books/owned/{id}",
+    "operationId": "updateOwnedBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/owned/{id}",
+    "operationId": "updateOwnedBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/owned/{id}",
+    "operationId": "updateOwnedBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/owned/{id}",
+    "operationId": "updateOwnedBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "POST",
+    "path": "/api/books/owned/{id}",
+    "operationId": "updateOwnedBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/books/wishlist/{id}",
+    "operationId": "updateWishlistBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/wishlist/{id}",
+    "operationId": "updateWishlistBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/wishlist/{id}",
+    "operationId": "updateWishlistBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/wishlist/{id}",
+    "operationId": "updateWishlistBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "POST",
+    "path": "/api/books/wishlist/{id}",
+    "operationId": "updateWishlistBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/books/read/{id}",
+    "operationId": "updateReadBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/read/{id}",
+    "operationId": "updateReadBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/read/{id}",
+    "operationId": "updateReadBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/read/{id}",
+    "operationId": "updateReadBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "POST",
+    "path": "/api/books/read/{id}",
+    "operationId": "updateReadBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/books/favorites/{id}",
+    "operationId": "updateFavoriteBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/favorites/{id}",
+    "operationId": "updateFavoriteBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/favorites/{id}",
+    "operationId": "updateFavoriteBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/books/favorites/{id}",
+    "operationId": "updateFavoriteBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "POST",
+    "path": "/api/books/favorites/{id}",
+    "operationId": "updateFavoriteBooks",
+    "tags": [
+      "book-shop-books"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-accounts",
+    "operationId": "getBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts",
+    "operationId": "getBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts",
+    "operationId": "getBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts",
+    "operationId": "getBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-accounts",
+    "operationId": "createBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-accounts",
+    "operationId": "createBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-accounts",
+    "operationId": "createBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-accounts",
+    "operationId": "createBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-accounts",
+    "operationId": "createBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/my-books",
+    "operationId": "getUserBooks",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/my-books",
+    "operationId": "getUserBooks",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/my-books",
+    "operationId": "getUserBooks",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/my-books",
+    "operationId": "getUserBooks",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "getBookShopAccountById",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "getBookShopAccountById",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "getBookShopAccountById",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "getBookShopAccountById",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "getBookShopAccountById",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/book-shop-accounts/{id}",
+    "operationId": "updateBookShopAccount",
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-authorize",
+    "operationId": "authorizeBookShopAccount",
+    "tags": [
+      "book-shop-authorization"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-authorize",
+    "operationId": "authorizeBookShopAccount",
+    "tags": [
+      "book-shop-authorization"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-authorize",
+    "operationId": "authorizeBookShopAccount",
+    "tags": [
+      "book-shop-authorization"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-authorize",
+    "operationId": "authorizeBookShopAccount",
+    "tags": [
+      "book-shop-authorization"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-authorize",
+    "operationId": "authorizeBookShopAccount",
+    "tags": [
+      "book-shop-authorization"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-authorize",
+    "operationId": "authorizeBookShopAccount",
+    "tags": [
+      "book-shop-authorization"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-items",
+    "operationId": "getBookShopItems",
+    "tags": [
+      "book-shop-items"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-items",
+    "operationId": "getBookShopItems",
+    "tags": [
+      "book-shop-items"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-items",
+    "operationId": "getBookShopItems",
+    "tags": [
+      "book-shop-items"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-items",
+    "operationId": "getBookShopItems",
+    "tags": [
+      "book-shop-items"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-stats/orders",
+    "operationId": "getBookShopOrdersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/orders",
+    "operationId": "getBookShopOrdersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/orders",
+    "operationId": "getBookShopOrdersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/orders",
+    "operationId": "getBookShopOrdersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-stats/users",
+    "operationId": "getBookShopUsersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/users",
+    "operationId": "getBookShopUsersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/users",
+    "operationId": "getBookShopUsersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/users",
+    "operationId": "getBookShopUsersStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-stats/all",
+    "operationId": "getAllBookShopStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/all",
+    "operationId": "getAllBookShopStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/all",
+    "operationId": "getAllBookShopStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-stats/all",
+    "operationId": "getAllBookShopStats",
+    "tags": [
+      "book-shop-stats"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-book-reviews",
+    "operationId": "getBookReviews",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-book-reviews",
+    "operationId": "getBookReviews",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/book-shop-book-reviews",
+    "operationId": "getBookReviews",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "book_id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/book-shop-book-reviews",
+    "operationId": "getBookReviews",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "mean",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/book-shop-book-reviews",
+    "operationId": "getBookReviews",
+    "tags": [
+      "book-shop"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "book_ids",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-manage/orders",
+    "operationId": "getAllOrders",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/orders",
+    "operationId": "getAllOrders",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/orders",
+    "operationId": "getAllOrders",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/orders",
+    "operationId": "getAllOrders",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/orders/{id}",
+    "operationId": "updateOrderStatus",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "getAllItems",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "getAllItems",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "getAllItems",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "createItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "createItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "createItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "createItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "createItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-manage/items",
+    "operationId": "createItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "updateItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "deleteItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "deleteItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "deleteItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "deleteItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "DELETE",
+    "path": "/api/book-shop-manage/items/{id}",
+    "operationId": "deleteItem",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items/by-book/{bookId}",
+    "operationId": "getItemByBookId",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items/by-book/{bookId}",
+    "operationId": "getItemByBookId",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items/by-book/{bookId}",
+    "operationId": "getItemByBookId",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items/by-book/{bookId}",
+    "operationId": "getItemByBookId",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/book-shop-manage/items/by-book/{bookId}",
+    "operationId": "getItemByBookId",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "bookId",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-manage/books-without-items",
+    "operationId": "getBooksWithoutItems",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/books-without-items",
+    "operationId": "getBooksWithoutItems",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/books-without-items",
+    "operationId": "getBooksWithoutItems",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-manage/users",
+    "operationId": "getBookshopUsers",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/users",
+    "operationId": "getBookshopUsers",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/users",
+    "operationId": "getBookshopUsers",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/users",
+    "operationId": "getBookshopUsers",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/book-shop-manage/users",
+    "operationId": "getBookshopUsers",
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "query",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/comments/{id}",
+    "operationId": "getCommentById",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/comments/{id}",
+    "operationId": "getCommentById",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/comments/{id}",
+    "operationId": "getCommentById",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/comments/{id}",
+    "operationId": "getCommentById",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/{id}",
+    "operationId": "getCommentById",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PUT",
+    "path": "/api/comments/{id}",
+    "operationId": "putComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/comments/{id}",
+    "operationId": "patchComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "DELETE",
+    "path": "/api/comments/{id}",
+    "operationId": "deleteComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/comments/{id}",
+    "operationId": "deleteComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/comments/{id}",
+    "operationId": "deleteComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "DELETE",
+    "path": "/api/comments/{id}",
+    "operationId": "deleteComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "DELETE",
+    "path": "/api/comments/{id}",
+    "operationId": "deleteComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "HEAD",
+    "path": "/api/comments/{id}",
+    "operationId": "headComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/comments/{id}",
+    "operationId": "headComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/comments/{id}",
+    "operationId": "headComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "HEAD",
+    "path": "/api/comments/{id}",
+    "operationId": "headComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "HEAD",
+    "path": "/api/comments/{id}",
+    "operationId": "headComment",
+    "tags": [
+      "comments"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "q",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "user_id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "date",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_sort",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_order",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_limit",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_page",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_start",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_end",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_embed",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/articles/search",
+    "operationId": "getArticlesQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_expand",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "q",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "firstname",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "lastname",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "email",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_sort",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_order",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_limit",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_page",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_start",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_end",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/users/search",
+    "operationId": "getUsersQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_embed",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "q",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "user_id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "article_id",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "date",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_sort",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_order",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_limit",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_page",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_start",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_end",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/comments/search",
+    "operationId": "getCommentsQuery",
+    "tags": [
+      "search"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "_expand",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/images/user",
+    "operationId": "getUserPictures",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/images/user",
+    "operationId": "getUserPictures",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/images/posts",
+    "operationId": "getArticlesPictures",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/images/posts",
+    "operationId": "getArticlesPictures",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/messenger/contacts",
+    "operationId": "getContacts",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/messenger/contacts",
+    "operationId": "getContacts",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "PUT",
+    "path": "/api/messenger/contacts",
+    "operationId": "addContact",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/messenger/contacts",
+    "operationId": "addContact",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/messenger/contacts",
+    "operationId": "addContact",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PUT",
+    "path": "/api/messenger/contacts",
+    "operationId": "addContact",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "requestBody",
+    "method": "PUT",
+    "path": "/api/messenger/contacts",
+    "operationId": "addContact",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/messenger/unread",
+    "operationId": "getUnreadMessages",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/messenger/unread",
+    "operationId": "getUnreadMessages",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/messenger/messages",
+    "operationId": "getMessages",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/messenger/messages",
+    "operationId": "getMessages",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/messenger/messages",
+    "operationId": "getMessages",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "userId",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/messenger/messages",
+    "operationId": "getMessages",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "idFrom",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/messenger/messages",
+    "operationId": "sendMessage",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/messenger/messages",
+    "operationId": "sendMessage",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/messenger/messages",
+    "operationId": "sendMessage",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/messenger/messages",
+    "operationId": "sendMessage",
+    "tags": [
+      "messenger"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/calc/simpleroi",
+    "operationId": "calcSimpleRoi",
+    "tags": [
+      "calculators"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/calc/simpleroi",
+    "operationId": "calcSimpleRoi",
+    "tags": [
+      "calculators"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/calc/simpleroi",
+    "operationId": "calcSimpleRoi",
+    "tags": [
+      "calculators"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/calc/roi",
+    "operationId": "calcAdvRoi",
+    "tags": [
+      "calculators"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/calc/roi",
+    "operationId": "calcAdvRoi",
+    "tags": [
+      "calculators"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/calc/roi",
+    "operationId": "calcAdvRoi",
+    "tags": [
+      "calculators"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/v1/languages",
+    "operationId": "getLanguages",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/v1/languages",
+    "operationId": "getLanguages",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/v1/languages/translations",
+    "operationId": "getTranslations",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/v1/languages/translations",
+    "operationId": "getTranslations",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/v1/languages/translations/{lang}",
+    "operationId": "getTranslationsByLang",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/v1/languages/translations/{lang}",
+    "operationId": "getTranslationsByLang",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/v1/languages/translations/{lang}",
+    "operationId": "getTranslationsByLang",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "lang",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/openapi.json",
+    "operationId": "getOpenApiSchema",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/openapi.json",
+    "operationId": "getOpenApiSchema",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/schema",
+    "operationId": "getOpenApiSchema2",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/schema",
+    "operationId": "getOpenApiSchema2",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/restore/list",
+    "operationId": "getRestoreList",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/restore/list",
+    "operationId": "getRestoreList",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/restoreDB",
+    "operationId": "restoreDB",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/restoreDB",
+    "operationId": "restoreDB",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/restoreEmptyDB",
+    "operationId": "restoreEmptyDB",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/restoreEmptyDB",
+    "operationId": "restoreEmptyDB",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/restoreBigDB",
+    "operationId": "restoreBigDB",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/restoreBigDB",
+    "operationId": "restoreBigDB",
+    "tags": [
+      "other"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/diagnostic/toggle-metrics",
+    "operationId": "toggleMetrics",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/diagnostic/toggle-metrics",
+    "operationId": "toggleMetrics",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/diagnostic/toggle-diagnostics",
+    "operationId": "toggleDiagnostics",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/diagnostic/toggle-diagnostics",
+    "operationId": "toggleDiagnostics",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/diagnostic/toggle-logs",
+    "operationId": "toggleLogs",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/diagnostic/toggle-logs",
+    "operationId": "toggleLogs",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/diagnostic/log-level",
+    "operationId": "setLogLevel",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/diagnostic/log-level",
+    "operationId": "setLogLevel",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/diagnostic/log-level",
+    "operationId": "setLogLevel",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/logs",
+    "operationId": "getLogs",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/logs",
+    "operationId": "getLogs",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/diagnostic/request/histogram",
+    "operationId": "getRequestHistogram",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/diagnostic/request/histogram",
+    "operationId": "getRequestHistogram",
+    "tags": [
+      "diagnostic"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/users",
+    "operationId": "getUserstats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/users",
+    "operationId": "getUserstats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/stats/users",
+    "operationId": "getUserstats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "chartType",
+      "in": "query",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/articles",
+    "operationId": "getArticleStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/articles",
+    "operationId": "getArticleStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/stats/articles",
+    "operationId": "getArticleStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "chartType",
+      "in": "query",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/publications/articles",
+    "operationId": "getArticlePublishStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/publications/articles",
+    "operationId": "getArticlePublishStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/publications/comments",
+    "operationId": "getCommentsPublishStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/publications/comments",
+    "operationId": "getCommentsPublishStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/activity/user",
+    "operationId": "getUserActivityStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/activity/user",
+    "operationId": "getUserActivityStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/activity/user/{id}",
+    "operationId": "getSingleUserActivityStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/activity/user/{id}",
+    "operationId": "getSingleUserActivityStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/stats/activity/user/{id}",
+    "operationId": "getSingleUserActivityStats",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/api",
+    "operationId": "getApiCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/api",
+    "operationId": "getApiCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/api/details",
+    "operationId": "getApiDetailedCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/api/details",
+    "operationId": "getApiDetailedCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/nonapi",
+    "operationId": "getNonApiCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/nonapi",
+    "operationId": "getNonApiCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/stats/nonapi/details",
+    "operationId": "getNonApiDetailedCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/stats/nonapi/details",
+    "operationId": "getNonApiDetailedCalls",
+    "tags": [
+      "stats"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/random/article",
+    "operationId": "getRandomArticle",
+    "tags": [
+      "random"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/random/article",
+    "operationId": "getRandomArticle",
+    "tags": [
+      "random"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/random/article",
+    "operationId": "getRandomArticle",
+    "tags": [
+      "random"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/quiz/start",
+    "operationId": "startQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/start",
+    "operationId": "startQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/start",
+    "operationId": "startQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/quiz/stop",
+    "operationId": "stopQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/stop",
+    "operationId": "stopQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/stop",
+    "operationId": "stopQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/stop",
+    "operationId": "stopQuiz",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/quiz/highscores",
+    "operationId": "getQuizhighscores",
+    "tags": [
+      "quiz"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/highscores",
+    "operationId": "getQuizhighscores",
+    "tags": [
+      "quiz"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/quiz/questions",
+    "operationId": "getQuizQuestions",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/questions",
+    "operationId": "getQuizQuestions",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/questions",
+    "operationId": "getQuizQuestions",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/quiz/questions/count",
+    "operationId": "getQuestionCount",
+    "tags": [
+      "quiz"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/questions/count",
+    "operationId": "getQuestionCount",
+    "tags": [
+      "quiz"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/quiz/questions/count",
+    "operationId": "getQuestionCount",
+    "tags": [
+      "quiz"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/quiz/questions/check",
+    "operationId": "checkQuizAnswer",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/quiz/questions/check",
+    "operationId": "checkQuizAnswer",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/quiz/questions/check",
+    "operationId": "checkQuizAnswer",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/quiz/questions/check",
+    "operationId": "checkQuizAnswer",
+    "tags": [
+      "quiz"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/hangman/random",
+    "operationId": "getRandomWord",
+    "tags": [
+      "hangman"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/hangman/random",
+    "operationId": "getRandomWord",
+    "tags": [
+      "hangman"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/hangman/highscores",
+    "operationId": "getHangmanHighscores",
+    "tags": [
+      "hangman"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/hangman/highscores",
+    "operationId": "getHangmanHighscores",
+    "tags": [
+      "hangman"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/hangman/score",
+    "operationId": "setHangmanScore",
+    "tags": [
+      "hangman"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/hangman/score",
+    "operationId": "setHangmanScore",
+    "tags": [
+      "hangman"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/hangman/score",
+    "operationId": "setHangmanScore",
+    "tags": [
+      "hangman"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/hangman/score",
+    "operationId": "setHangmanScore",
+    "tags": [
+      "hangman"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/minesweeper/highscores",
+    "operationId": "getMinesweeperHighscores",
+    "tags": [
+      "minesweeper"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/minesweeper/highscores",
+    "operationId": "getMinesweeperHighscores",
+    "tags": [
+      "minesweeper"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/minesweeper/score",
+    "operationId": "setMinesweeperScore",
+    "tags": [
+      "minesweeper"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/minesweeper/score",
+    "operationId": "setMinesweeperScore",
+    "tags": [
+      "minesweeper"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/minesweeper/score",
+    "operationId": "setMinesweeperScore",
+    "tags": [
+      "minesweeper"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/minesweeper/score",
+    "operationId": "setMinesweeperScore",
+    "tags": [
+      "minesweeper"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/highscores",
+    "operationId": "getTicTacToeHighscores",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/highscores",
+    "operationId": "getTicTacToeHighscores",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/start",
+    "operationId": "startTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/start",
+    "operationId": "startTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/start",
+    "operationId": "startTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "409"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/join",
+    "operationId": "joinTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/status/{code}",
+    "operationId": "getTicTacToeStatus",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/status/{code}",
+    "operationId": "getTicTacToeStatus",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/status/{code}",
+    "operationId": "getTicTacToeStatus",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/status/{code}",
+    "operationId": "getTicTacToeStatus",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/tic-tac-toe/status/{code}",
+    "operationId": "getTicTacToeStatus",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "code",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/status",
+    "operationId": "moveTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/status",
+    "operationId": "moveTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/status",
+    "operationId": "moveTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/status",
+    "operationId": "moveTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/status",
+    "operationId": "moveTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/status",
+    "operationId": "moveTicTacToe",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/stop",
+    "operationId": "stopTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/stop",
+    "operationId": "stopTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/stop",
+    "operationId": "stopTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/stop",
+    "operationId": "stopTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "403"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/tic-tac-toe/stop",
+    "operationId": "stopTicTacToeSession",
+    "tags": [
+      "tic-tac-toe"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/games",
+    "operationId": "getGames",
+    "tags": [
+      "games"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/games",
+    "operationId": "getGames",
+    "tags": [
+      "games"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/scores",
+    "operationId": "getScores",
+    "tags": [
+      "scores"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/scores",
+    "operationId": "getScores",
+    "tags": [
+      "scores"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/scores/{id}",
+    "operationId": "getGameScores",
+    "tags": [
+      "scores"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/scores/{id}",
+    "operationId": "getGameScores",
+    "tags": [
+      "scores"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/scores/{id}",
+    "operationId": "getGameScores",
+    "tags": [
+      "scores"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/scores/{id}",
+    "operationId": "getGameScores",
+    "tags": [
+      "scores"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/v1/data/weather",
+    "operationId": null,
+    "tags": [
+      "data"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/v1/data/weather",
+    "operationId": null,
+    "tags": [
+      "data"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/v1/data/weather",
+    "operationId": null,
+    "tags": [
+      "data"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "days",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/v1/data/costs",
+    "operationId": null,
+    "tags": [
+      "data"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/v1/data/costs",
+    "operationId": null,
+    "tags": [
+      "data"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/v1/data/costs",
+    "operationId": null,
+    "tags": [
+      "data"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "days",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/about",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/about",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/ping",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/ping",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/health",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/health",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/health/memory",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/health/memory",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/health/uptime",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/health/uptime",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/health/configcheck",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/health/configcheck",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/health/dbcheck",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/health/dbcheck",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/health/db",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/health/db",
+    "operationId": null,
+    "tags": [
+      "healthcheck"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/visits/articles",
+    "operationId": "getArticlesVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/visits/articles",
+    "operationId": "getArticlesVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/visits/articles",
+    "operationId": "getArticlesVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "ids",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/visits/top/articles",
+    "operationId": "getTopArticlesVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/visits/top/articles",
+    "operationId": "getTopArticlesVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/visits/users",
+    "operationId": "getUsersVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/visits/users",
+    "operationId": "getUsersVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/visits/users",
+    "operationId": "getUsersVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "ids",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/visits/top/users",
+    "operationId": "getTopUsersVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/visits/top/users",
+    "operationId": "getTopUsersVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/visits/comments",
+    "operationId": "getCommentsVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/visits/comments",
+    "operationId": "getCommentsVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/visits/comments",
+    "operationId": "getCommentsVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "ids",
+      "in": "query",
+      "required": false
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/visits/top/comments",
+    "operationId": "getTopCommentsVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/visits/top/comments",
+    "operationId": "getTopCommentsVisitsStats",
+    "tags": [
+      "visits"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/surveys/statistics/{type}",
+    "operationId": "getSurveysStatistics",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/statistics/{type}",
+    "operationId": "getSurveysStatistics",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/statistics/{type}",
+    "operationId": "getSurveysStatistics",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/surveys/statistics/{type}",
+    "operationId": "getSurveysStatistics",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "type",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/description",
+    "operationId": "getSurveysDescription",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/description",
+    "operationId": "getSurveysDescription",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/description",
+    "operationId": "getSurveysDescription",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/description",
+    "operationId": "getSurveysDescription",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "surveyType",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/questions/{id}",
+    "operationId": "getSurveysQuestions",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/questions/{id}",
+    "operationId": "getSurveysQuestions",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/questions/{id}",
+    "operationId": "getSurveysQuestions",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/questions/{id}",
+    "operationId": "getSurveysQuestions",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "surveyType",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/surveys/{surveyType}/questions/{id}",
+    "operationId": "getSurveysQuestions",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/surveys/responses",
+    "operationId": "getUserSurveyResponses",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/responses",
+    "operationId": "getUserSurveyResponses",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/responses",
+    "operationId": "getUserSurveyResponses",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/surveys/responses",
+    "operationId": "createSurvey",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/surveys/responses",
+    "operationId": "createSurvey",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/surveys/responses",
+    "operationId": "createSurvey",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "400"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/surveys/responses",
+    "operationId": "createSurvey",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/surveys/responses",
+    "operationId": "createSurvey",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "422"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/surveys/responses",
+    "operationId": "createSurvey",
+    "tags": [
+      "surveys"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/surveys/responses/{id}",
+    "operationId": "getUserSurveyResponse",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/responses/{id}",
+    "operationId": "getUserSurveyResponse",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/surveys/responses/{id}",
+    "operationId": "getUserSurveyResponse",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "parameter",
+    "method": "GET",
+    "path": "/api/surveys/responses/{id}",
+    "operationId": "getUserSurveyResponse",
+    "tags": [
+      "surveys"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/bookmarks/articles",
+    "operationId": "getUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/bookmarks/articles",
+    "operationId": "getUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/bookmarks/articles",
+    "operationId": "getUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/bookmarks/articles",
+    "operationId": "addUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/bookmarks/articles",
+    "operationId": "addUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/bookmarks/articles",
+    "operationId": "addUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "201"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/bookmarks/articles",
+    "operationId": "addUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/bookmarks/articles",
+    "operationId": "addUserArticlesBookmarks",
+    "tags": [
+      "bookmarks"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "POST",
+    "path": "/api/book-shop-accounts/files",
+    "operationId": null,
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-accounts/files",
+    "operationId": null,
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "POST",
+    "path": "/api/book-shop-accounts/files",
+    "operationId": null,
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "requestBody",
+    "method": "POST",
+    "path": "/api/book-shop-accounts/files",
+    "operationId": null,
+    "tags": [
+      "book-shop-accounts"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "operation",
+    "method": "GET",
+    "path": "/api/book-shop-manage/team",
+    "operationId": null,
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/team",
+    "operationId": null,
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "GET",
+    "path": "/api/book-shop-manage/team",
+    "operationId": null,
+    "tags": [
+      "book-shop-manage"
+    ],
+    "secured": true,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "operation",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "200"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "401"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "404"
+  },
+  {
+    "type": "status",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "status": "500"
+  },
+  {
+    "type": "parameter",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false,
+    "parameter": {
+      "name": "id",
+      "in": "path",
+      "required": true
+    }
+  },
+  {
+    "type": "requestBody",
+    "method": "PATCH",
+    "path": "/api/books/{id}",
+    "operationId": null,
+    "tags": [
+      "Books"
+    ],
+    "secured": false,
+    "operationCovered": false
+  }
+]

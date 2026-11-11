@@ -1,0 +1,137 @@
+# PR coverage: runs the qa API tests on the PR branch and on the base branch, measures OpenAPI spec
+# coverage for both, and reports the delta as a job summary, a PR comment and an HTML artifact.
+# Lives outside qa/ because GitHub only reads workflows from .github/workflows/.
+name: qa-pr-coverage
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write # for the PR comment
+
+concurrency:
+  group: qa-pr-coverage-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: 'true' # Playwright starts GAD itself (reuseExistingServer is off)
+      PORT: '3001'
+      RESTORE_PATH: /api/restoreDB
+      SPEC_FILE: public/tools/schema/openapi_rest_demo.json
+    steps:
+      - name: Check out this branch
+        uses: actions/checkout@v4
+
+      - name: Check out the base branch into .base/
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .base
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # qa/.env is not committed. The login user is GAD's seed user 1, so read it from the seed file.
+      - name: Seed-user credentials
+        run: |
+          node -e '
+            const u = require("./db/db-base.json").users.find((x) => x.id === 1);
+            require("fs").appendFileSync(process.env.GITHUB_ENV, `GAD_EMAIL=${u.email}\nGAD_PASSWORD=${u.password}\n`);
+          '
+
+      # ---------- this branch ----------
+      - name: Install (this branch)
+        run: npm ci && npm ci --prefix qa
+
+      - name: Coverage tool unit tests
+        working-directory: qa
+        run: npm run test:coverage-tool
+
+      - name: API tests (this branch)
+        id: tests
+        continue-on-error: true # still report coverage; the last step fails the job
+        working-directory: qa
+        run: npx playwright test
+
+      - name: Spec coverage (this branch)
+        working-directory: qa
+        run: npm run coverage
+
+      # ---------- base branch ----------
+      # The base runs its own tests against its own GAD and spec; this branch's tool reads the resulting log.
+      # A base without qa/ (the first PR) simply has no baseline.
+      - name: API tests (base branch)
+        id: base
+        if: github.event_name == 'pull_request' && hashFiles('.base/qa/playwright.config.ts') != ''
+        continue-on-error: true
+        working-directory: .base
+        run: |
+          npm ci && npm ci --prefix qa
+          cd qa && npx playwright test
+
+      - name: Spec coverage (base branch)
+        if: steps.base.conclusion == 'success' && hashFiles('.base/qa/coverage-log/*.jsonl') != ''
+        working-directory: qa
+        run: >
+          npm run coverage -- --quiet
+          --spec ../.base/public/tools/schema/openapi_rest_demo.json
+          --logs ../.base/qa/coverage-log
+          --out coverage-report/base
+
+      # ---------- report ----------
+      - name: Coverage delta, summary and HTML report
+        working-directory: qa
+        run: >
+          npm run coverage:report --
+          --head coverage-report/coverage.json
+          --base coverage-report/base/coverage.json
+          --title "GAD API spec coverage: ${{ github.head_ref || github.ref_name }}"
+          ${{ steps.tests.outcome == 'failure' && '--tests-failed' || '' }}
+
+      - name: Job summary
+        run: cat qa/coverage-report/summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-coverage-report
+          path: |
+            qa/coverage-report/
+            qa/coverage-log/
+
+      # Updates its own earlier comment (found by a hidden marker) instead of adding one per push.
+      # PRs from forks get a read-only token, so they only get the job summary and the artifact.
+      - name: PR comment
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- qa-coverage-report -->';
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = fs.readFileSync('qa/coverage-report/summary.md', 'utf8') + `\n[Workflow run and artifact](${run})\n`;
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number });
+            const mine = comments.find((c) => c.user.type === 'Bot' && c.body.includes(marker));
+            if (mine) await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
+
+      # ---------- gates ----------
+      - name: Fail if the API tests failed
+        if: steps.tests.outcome == 'failure'
+        run: echo "::error::API tests failed on this branch" && exit 1
+
+      - name: Fail if coverage dropped or a call is outside the spec
+        working-directory: qa
+        run: |
+          npm run -s coverage -- --quiet --fail-on-unmatched
+          npm run -s coverage:report -- --head coverage-report/coverage.json --base coverage-report/base/coverage.json --fail-on-drop > /dev/null
