@@ -1,5 +1,5 @@
 // PR report CLI: compares this branch's coverage.json with the base branch's and writes
-// delta.json, summary.md (job summary + PR comment) and report.html (artifact).
+// delta.json, pr-gaps.json (gaps this PR introduced), summary.md (job summary + PR comment) and report.html.
 //   npm run coverage:report -- --head coverage-report/coverage.json --base <base coverage.json>
 import fs from 'node:fs';
 import path from 'node:path';
@@ -56,6 +56,7 @@ function main(): number {
     reportHint: 'Full report: `report.html` in the `qa-coverage-report` artifact of this run.',
   });
   fs.writeFileSync(path.join(outDir, 'delta.json'), JSON.stringify(delta, null, 2) + '\n');
+  fs.writeFileSync(path.join(outDir, 'pr-gaps.json'), JSON.stringify(delta.introducedGaps, null, 2) + '\n');
   fs.writeFileSync(path.join(outDir, 'summary.md'), markdown);
   fs.writeFileSync(
     path.join(outDir, 'report.html'),
@@ -63,7 +64,7 @@ function main(): number {
   );
 
   console.log(markdown);
-  console.log(`Written: delta.json, summary.md, report.html in ${path.relative(process.cwd(), outDir) || '.'}`);
+  console.log(`Written: delta.json, pr-gaps.json, summary.md, report.html in ${path.relative(process.cwd(), outDir) || '.'}`);
 
   if (values['fail-on-drop'] && coverageDropped(delta)) {
     console.error('FAIL: operation or status-code coverage is lower than on the base branch.');

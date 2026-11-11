@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { computeCoverage, parseSpec, type LoggedCall } from './core';
-import { COMMENT_MARKER, computeDelta, coverageDropped, formatHtml, formatMarkdown } from './delta';
+import { COMMENT_MARKER, computeDelta, coverageDropped, describeGap, formatHtml, formatMarkdown } from './delta';
 
 const spec = parseSpec({
   openapi: '3.0.1',
@@ -28,6 +28,28 @@ test('delta reports the change, what is newly covered and what was lost', () => 
   assert.deepEqual(delta.lost, { operations: [], statuses: ['GET /api/articles/{id} -> 200'] });
   assert.equal(coverageDropped(delta), false);
   assert.equal(coverageDropped(computeDelta(base, head)), true);
+});
+
+test('gaps introduced by a PR: new spec behaviour without a test, and coverage it removed', () => {
+  const bigger = parseSpec({
+    openapi: '3.0.1',
+    servers: [{ url: '/api' }],
+    paths: {
+      '/articles/{id}': { get: { tags: ['articles'], responses: { 200: {}, 404: {} } } },
+      '/articles/{id}/stats': { get: { tags: ['articles'], responses: { 200: {}, 404: {} } } },
+    },
+  });
+  const before = computeCoverage(parseSpec({ openapi: '3.0.1', servers: [{ url: '/api' }], paths: { '/articles/{id}': { get: { tags: ['articles'], responses: { 200: {}, 404: {} } } } } }), [call('GET', '/api/articles/1', 200)]);
+  const after = computeCoverage(bigger, [call('GET', '/api/articles/1', 200)]);
+  const delta = computeDelta(after, before);
+  assert.deepEqual(delta.introducedGaps.map(describeGap), [
+    'GET /api/articles/{id}/stats: never called',
+    'GET /api/articles/{id}/stats -> 200',
+    'GET /api/articles/{id}/stats -> 404',
+  ]);
+  assert.equal(coverageDropped(delta), true);
+  assert.match(formatMarkdown(delta), /Gaps introduced by this PR:\*\* 3/);
+  assert.deepEqual(computeDelta(after, after).introducedGaps, []);
 });
 
 test('top gaps: missing statuses of called operations first, then uncovered operations', () => {
