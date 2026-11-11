@@ -57,7 +57,9 @@ jobs:
       - name: Check out the history branch into .history/
         run: |
           if git ls-remote --exit-code --heads origin "$HISTORY_BRANCH" > /dev/null; then
-            git worktree add .history "origin/$HISTORY_BRANCH" --detach
+            # actions/checkout only fetched main, so fetch the history branch before using it.
+            git fetch --depth 1 origin "$HISTORY_BRANCH"
+            git worktree add --detach .history FETCH_HEAD
           else
             git worktree add --detach .history
             git -C .history checkout --orphan "$HISTORY_BRANCH"
